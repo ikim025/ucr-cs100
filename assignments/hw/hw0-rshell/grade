@@ -1,1 +1,8 @@
-/ 100
+0 / 100
+
+No LICENSE file.
+Directory structure incorrect.
+Makefile does not put the executable in a bin directory.
+No test directory or test script included.
+Does not run according to directions given on website.
+
