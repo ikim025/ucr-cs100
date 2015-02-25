@@ -1,1 +1,27 @@
-/ 100
+6 / 100
+
+Input Redirection: 0/25
+    [0/5] Input redirection from an existant file
+    [0/5] Input redirection from a non-existant file (should throw an error)
+    [0/5] Input redirection with space
+    [0/5] Input redirection without space
+    [0/5] Input redirection with piping
+Output Redirection: 6/25
+    [5/5]   Output redirection (>) to an existant file
+    [0/5]   Output redirection (>) to a non-existant file (should not throw an error)
+    [0/5]   Output redirection (>>) to an existant file
+    [0/5]   Output reidrection (>>) to a non-existant file (should not throw an error)
+    [1/2.5] Output redirection with space (> and >>)
+    [0/2.5] Output redirection without space (> and >>)
+Piping: 0/50
+    [0/10] Command with one pipe
+    [0/10] Command with more than one pipe
+    [0/5]  Piping with space
+    [0/5]  Piping without space
+    [0/10] Output redirection and piping
+    [0/10] Input redirection, output redirection, and piping
+Extra Credit: 0/40
+    [0/20] Input redirection from string
+    [0/20] Output redirection from file descriptors
+
+Total: 6/100
