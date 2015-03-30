@@ -29,8 +29,7 @@ Bugs/Limitations/Issues
 ---
 * Explicitly list all of the known bugs in your project.
 * If there are any known limitations or issues, explicitly list those as well.
-* The more effective you are at conveying the nature of the bug/limitation/issue the better. 
-This means being clear and concise in your wording and providing as much relevant information as possible.
+* The more effective you are at conveying the nature of the bug/limitation/issue the better. This means being clear and concise in your wording and providing as much relevant information as possible.
   * E.g. "The foo function causes a segmentation fault when the argument passed in is negative" as opposed to "foo fails when the parameter is negative"
 
 Things **not** to do

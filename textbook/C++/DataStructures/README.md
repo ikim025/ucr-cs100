@@ -1,4 +1,4 @@
-### Purpose
+## Purpose
 This tutorial is meant to be a refresher for the data structures taught in CS14, covering the basic usage of a few `stl` data structures. 
 Considering you just finished a quarter of implementing data structures based off of the `stl` implementations you should know the majority of what is presented here. 
 The most important part of this tutorial is the reminder that these structures exist and have practical uses ([Uses of data structures](http://stackoverflow.com/questions/1539069/practical-uses-of-different-data-structures)).
@@ -9,10 +9,10 @@ If you are searching for a specific data structure or algorithm to suit your nee
 [Interesting lesser-known data structures](http://stackoverflow.com/questions/500607/what-are-the-lesser-known-but-useful-data-structures?rq=1).
 
 Within this folder there exists folders including examples of basic usage for the covered data structures. 
-you would like to see more about Trees and Hash functions which are used in the Map and Priority_Queue classes respectively: 
+If you would like to see more about Trees and Hash functions which are used in the Map and Priority_Queue classes respectively: 
 [Nice basic tutorial, solid example programs included](http://www.cs.fsu.edu/~jestes/cop3330/notes/datastruct.html). Scroll down to the textbook examples section and there are examples of Trees and Hash functions.
 
-Many of these data structures exist in the Boost library and I would highly recommend getting used to some of the Boost features. 
+Many of these data structures exist in the Boost library and we would highly recommend getting used to some of the Boost features. 
 Boost has some rather obscure data structures that might be exactly what you need one day. 
 If you only have access to the lab computers then you will have to ask systems to install the boost libraries you need as only 10 or so Boost libraries are installed on Linux by default.
 
@@ -29,9 +29,9 @@ And yes, you will use data structures in your life beyond schooling:*
 
 A map is a container filled with Pairs made out of a Key, used to reference/retrieve data, and the actual data itself. 
 An important piece of information to remember about maps are that they are implemented as a binary tree so when iterating through a map the iterator traverses the tree in order based on your comparison operator. 
-To create a map you must decide what you want to store, and how you wish to reference that data. If your
- `pair<const Key, data_type data>` was `pair<int, string>`, you would have a
-  map of int values which referenced some data of type string. Basically, at each index of the `map (m[int])` you would have a string value.
+To create a map you must decide what you want to store, and how you wish to reference that data. 
+If your `pair<const Key, data_type data>` was `pair<int, string>`, you would have a map of int values which referenced some data of type string. 
+Basically, at each index of the `map (m[int])` you would have a string value.
 
 ```
 int main(){
@@ -76,14 +76,16 @@ int main(){
 }
 ```
 
-The default linked list is a doubly linked list (it contains pointers to the previous node as well as the next). If you want a singly linked list, then use STL `<forward_list>`.
+The default linked list is a doubly linked list (it contains pointers to the previous node as well as the next).
+If you want a singly linked list, then use STL `<forward_list>`.
 
 ### Stack
 
 (First In Last Out)
 
 Stacks are interesting in that access involves only the topmost element. 
-Either you push to the top or pop off the top. One way to use a stack is to use it to reverse the order of something. 
+Either you push to the top or pop off the top. 
+One way to use a stack is to use it to reverse the order of something. 
 When you push, say a set of strings, to the stack after popping all of the elements off of the stack, the sentence of strings would be in reverse.
 
 ```
@@ -141,8 +143,9 @@ Except queues are used more with process scheduling.
 
 ### Vector
 
-Vectors are the go-to answer whenever a simple array is needed but the size is not known at initialization. Internally, a vector is a dynamically allocated array that reallocates more memory when a new element is pushed but requires more space. 
-As stated above in the "List" section, vectors perform efficiently with random access but inefficiently when inserting or removing items. 
+Vectors are the go-to answer whenever a simple array is needed but the size is not known at initialization. 
+Internally, a vector is a dynamically allocated array that reallocates more memory when a new element is pushed but requires more space. 
+As we are pointing out above in the "List" section, vectors perform efficiently with random access but inefficiently when inserting or removing items. 
 One thing to note with vectors are their ability to change their size or capacity. 
 Capacity refers to the amount of memory allocated to the array; size refers to the number of elements in the vector. 
 Vectors are nice in their simplicity and that they cover the basic needs of many situations.
@@ -160,8 +163,8 @@ int main(){          //an out of bounds item
 
 However, vectors can be overused when you rely on them too heavily. 
 For example, we have been in the situation where we thought we needed a `vector<vector<string> >`. 
-What we really wanted to do, however, was map `int` values to said `vector<string>`. 
-Getting too caught up with vectors, we confused myself and overcomplicated things by trying to force something simple into something complex. 
+What we really wanted to do, however, were map `int` values to said `vector<string>`. 
+Getting too caught up with vectors, we are confusing ourselves and overcomplicatiing things by trying to force something simple into something complex. 
 Simple solutions should be preferred over complex solutions.
 
 

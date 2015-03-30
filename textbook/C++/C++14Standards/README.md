@@ -9,7 +9,7 @@ These features include:
 
 ### Return type deduction
 Introduced back in C++11, the auto keyword for variables specifies that the type of the variable that is being declared will be automatically deduced from it's initializer.
-<br />This means you can do things like:
+<br /> This means you can do things like:
 ```c++
 double a = 2.5;
 auto x = 2 * a; // x is initialized to type double
@@ -18,7 +18,7 @@ The expression `2 * a`, which is used to initialize the variable `x`, returns a 
 `auto` is then able to specify that the type of the variable is `double`.
 
 We can use a similar form of type deduction in the declaration of `for` loops.
-<br />For example:
+<br /> For example:
 ```c++
 std::vector<int> v = { 2 , 3 , 5 , 7 }
 for(std::vector<int>::iterator iter = v.begin(); iter != v.end(); ++iter) {
@@ -33,11 +33,10 @@ for(auto iter = v.begin(); iter != v.end(); ++iter) {
 	std::cout << *iter << std::endl;
 }
 ```
-Here `auto` is able to infer, from the return type of `v.begin()`, that the
-variable `iter` is of type `std::vector<int>::iterator`.
+Here `auto` is able to infer, from the return type of `v.begin()`, that the variable `iter` is of type `std::vector<int>::iterator`.
 
 C++11 extended the auto type specifier to functions, allowing the return type of the function to be deduced from its return statements.
-A function of the form `auto function -> return type` could take advantage of the `auto` keyword but the function still had to have the trailing return type at the end of the function declaration in order for type deduction to take place.
+A function of the form `auto function -> return type` could take advantage of the `auto` keyword but the function still has to have the trailing return type at the end of the function declaration in order for type deduction to take place.
 ```c++
 auto add(double a, int b) -> decltype(a + b) // the return type is the type of operator+(double, int)
 {

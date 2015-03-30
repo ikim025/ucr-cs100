@@ -5,7 +5,8 @@ This is a general overview on regular expressions, commonly shortened to "regex"
 
 This tutorial will cover the basics of regex, but more specifically, **POSIX regex**.
 
-If you would like to practice regex, we have developed a tool for you to use. Check [down below](#practice).
+If you would like to practice regex, we have developed a tool for you to use. 
+Check [down below](#practice). 
 
 <a name="what"/>
 ###What is Regex?
@@ -13,19 +14,18 @@ If you would like to practice regex, we have developed a tool for you to use. Ch
 A regular expression is a pattern of letters and symbols which can represent a search pattern. 
 The most common usage is using this search pattern to search through strings in a document or files. 
 For example, if you wanted to find all the emails in a webpage, regex would be a good solution to use to quickly parse all the text on the page. 
-Depending on the environment these strings are parsed in, you can match multiple instances or a single instance of a pattern. Regular regex returns the **first** matching string that it finds. 
+Depending on the environment these strings are parsed in, you can match multiple instances or a single instance of a pattern. 
+Regular regex returns the **first** matching string that it finds. 
 Regex is most commonly used for searching and replacing string patterns, and while this may not be the only use, it is very powerful because of the syntax behind regex.
 
 One of the many uses of regex is pattern matching for `sed` and `grep`, two Linux commands for which are used for searching and replacing text or just searching for strings respectively.
 
-[Back to table of contents](#top)
 
 <a name="practice"/>
 ##Regex Practice
 Our practice program is [located here](http://github.com/Liniarc/regexProgram). 
 Instructions for running this practice program is located in that repository.
 
-[Back to table of contents](#top)
 
 <a name="literal"/>
 ###Basic Characters aka Literal Characters
@@ -46,11 +46,10 @@ c<em><strong>a</em></strong>t p<em><strong>a</strong></em>tch dog</code></pre></
 
 See also: [Literal Characters](http://www.regular-expressions.info/characters.html)
 
-[Back to table of contents](#top)
 
 <a name="meta"/>
-
 ###Special Characters aka Metacharacters
+
 These characters are special and cannot be used to match for that character. 
 However, if you need to match the literal character you need to use an escape character, `\`, in front of the metacharacter.
 
@@ -93,7 +92,8 @@ Here are all the metacharacters:
 + `\` - The escape character. 
 You'll need it if you want to match the literal character for all of the next few symbols.
 
-+ `[ ]` - Indicates a group of characters to match. Adding a `^` in front of the characters indicates not those characters.
++ `[ ]` - Indicates a group of characters to match. 
+Adding a `^` in front of the characters indicates not those characters.
 
 <table>
   <tr>
@@ -207,8 +207,7 @@ Use `\{0,1\}` in standard posix.
 
 See also: [Repeating character classes](http://www.regular-expressions.info/charclass.html)
 
-+ `|` - The pipe. 
-Or logical OR. 
++ `|` - The pipe. Or logical OR. 
 Best used inside of `(` and `)`. 
 You must escape these in standard Posix, but not in extended Posix.
 <table>
@@ -314,10 +313,8 @@ This does not exist in Extended Regex.
 
 See also: [Backreferences](http://www.regular-expressions.info/backref.html)
 
-[Back to table of contents](#top)
 
 <a name="escaped"/>
-
 ###Table of Character classes
 
 These are used to indicate special characters or characteristics. 
@@ -352,7 +349,6 @@ They work in conjunction with bracket expressions, so you need to add a second s
 
  See also: [Free-spacing](http://www.regular-expressions.info/freespacing.html)
 
-[Back to table of contents](#top)
 
 <a name="posix"/>
 ##POSIX Specific Syntax
@@ -385,11 +381,9 @@ Result: Set <strong><em>SetStatus</em></strong>
 
 See also: [POSIX](http://www.regular-expressions.info/posix.html)
 
+
 <a name="resources"/>
 ##Additional Resources
 http://regexone.com is an excellent learning tool which provides an interactive tutorial which walks through the basics of regex.    
 http://www.regular-expressions.info has many pages dedicated to both quickly learning regex and POSIX specific regex. 
 This resource has also been linked throughout this document.
-
-
-

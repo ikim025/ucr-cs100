@@ -117,8 +117,9 @@ This is helpful because you can access this commit later, even if you've already
 Name a series of commits and combine completed efforts. 
 
 Using Git, you can work with multiple versions of the same project at the same time. 
-This is called branching. Every project can have many branches (versions) and they can be completely different from each other. 
-This is very useful when you want to add a new feature to a project that is already working, and not ruin it.
+This is called branching. 
+Every project can have many branches (versions) and they can be completely different from each other. 
+This is very useful when you want to add a new feature to a project that is already working, and not ruin it. 
 You can just make another branch, work on your new feature in it, and when the feature is ready, you merge the new branch with the origin.
 
 ```
@@ -130,8 +131,7 @@ The main branch (that every project has) is called `master`.
 ```
 $ git branch [branch-name]
 ```
-Using `git branch` with a name as 3rd parameter will create a new branch. 
-This branch will point to the spot on the project that you are at the moment. 
+Using `git branch` with a name as 3rd parameter will create a new branch. This branch will point to the spot on the project that you are at the moment. 
 For example, If I call `git branch test` with the repository up-to-date on the `master` branch, my new branch (`test`) will point to the last commit of the `master` branch. 
 This means that everything that the branch `master` has, the branch `test` will have as well.
 
@@ -149,9 +149,9 @@ You can use the `-b` flag to create the new branch and switch to it at the same 
 $ git merge [branch]
 ```
 To merge branches, you will checkout to the branch that you want to add the modifications to. 
-For example, now that we are done with the `test` branch, I want to merge it with the `master` branch, so we have to run `git checkout master` and then run `git merge test`. 
-This will merge what is in the `test` branch with the `master` branch,
-but this command can create a conflict problem. The conflict will happen if we change the same file in different branches. 
+For example, now that we are done with the `test` branch, we want to merge it with the `master` branch, so we have to run `git checkout master` and then run `git merge test`. 
+This will merge what is in the `test` branch with the `master` branch, but this command can create a conflict problem. 
+The conflict will happen if we change the same file in different branches. 
 For example, we made changes in the file `main.cpp` in the `test` branch. 
 Then, we went back to the `master branch` and made more changes there, in the same `main.cpp` file. 
 When you try to merge the branches, you will get an error message. 
@@ -172,8 +172,7 @@ $ git log
 $ git log -p
 $ git log -p -2
 ```
-With `git log` command, you will have the list of the commits made in that repository in reverse chronological order. 
-If you add the flag `-p`, the output will be a list of commits with the diff introduced in each one. 
+With `git log` command, you will have the list of the commits made in that repository in reverse chronological order. If you add the flag `-p`, the output will be a list of commits with the diff introduced in each one.
 You can also limit the number of commits you want displayed with the flag `-[number]`, which will display the number of commits you want.
 
 

@@ -63,8 +63,7 @@
 
 
 ##1. What is hamano.c?
-Hamano.c is a program written for the 21st International Obfuscated C Code Contest (2012) by Tsukasa Hamano. 
-It is the winner of most elementary use of C - silver award.
+Hamano.c is a program written for the 21st International Obfuscated C Code Contest (2012) by Tsukasa Hamano. It is the winner of most elementary use of C - silver award.
 Its purpose is to output a pdf file containing dancing characters based upon input text. 
 This output pdf file can also be compiled and the new program based on your text input will output the original text input given to hamano. 
 Hamano.c is also able to obfuscate input c code.   
@@ -634,7 +633,9 @@ N main(N c){ //int c unneeded here, receives nothing, can be moved in main
 ```
 ##4. Ending remarks
 
-Complete source of deobfuscated code can be found attached as myhamano.c.
-outputORIG.pdf is output from unchanged hamano using text `aabbccddxx`.
+Complete source of deobfuscated code can be found attached as myhamano.c
+
+outputORIG.pdf is output from unchanged hamano using text `aabbccddxx`
+
 output.pdf is output from myhamano.c using text `aabbccddxx`
 

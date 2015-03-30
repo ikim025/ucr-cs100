@@ -151,11 +151,6 @@ Using Valgrind on a more difficult example
 
 
 ```
-    #include <iostream>
-    #include <cstring>
-     
-    using namespace std;
-     
     void doSomething(char *ptr)
     {
         char *var2 = new char[1024]; // create a new char*
@@ -176,18 +171,18 @@ Using Valgrind on a more difficult example
     }  
 ```
 
-This program listed above just creates a character string or cstring and copies the string "hello world" into it. 
+This program we are listing above just creates a character string or cstring and copies the string "hello world" into it. 
 Then the program outputs the cstring. 
 Then it passes this cstring into a function which declares another cstring and copies the first cstring into the second one. 
-Then the function prints out the cstring. 
-The following is what is supposed to be output by this program
+Then the function prints out the cstring. The following is what is supposed to be output by this program
 
 ```
     hello world
     hello world
 ```
 
-In our program above, we call the ```new``` operator twice and never call the ```delete``` operator. We call the first ```new``` operator in our ```main``` function and the second ```new``` in our function ```doSomething```. 
+In our program above, we call the ```new``` operator twice and never call the ```delete``` operator. 
+We call the first ```new``` operator in our ```main``` function and the second ```new``` in our function ```doSomething```. 
 
 Now lets run our program with Valgrind and Memcheck:
 
@@ -344,13 +339,15 @@ When we compile and run this program through Valgrind using Memcheck, we get:
     Segmentation fault (core dumped)
 ```
 
-We can see right under ```Command:``` that we have the statement ```Use of uninitialized value of size 8```. This statement implies that we tried to use memory, that we have not allocated, which would cause a segmentation fault. 
+We can see right under ```Command:``` that we have the statement ```Use of uninitialized value of size 8```. 
+This statement implies that we tried to use memory, that we have not allocated, which would cause a segmentation fault. 
 This segmentation fault is shown at the end of the output.
 
 We also see that below the line ```Process terminating with default action of signal 11(SIGSEGV)``` we get the message ```Bad permissions for mapped region at address 0x400AC0```. 
 The ```Bad permission``` statement also states that we have not allocated the memory that we want to access.
 
-We can see that Valgrind and Memcheck are trying to help us find our issue by giving us the message ```Use --track-origins=yes to see where uninitialized values come from```. So let's give this a try ourselves:
+We can see that Valgrind and Memcheck are trying to help us find our issue by giving us the message ```Use --track-origins=yes to see where uninitialized values come from```. 
+So let's give this a try ourselves:
 
 Let's run the command:
 

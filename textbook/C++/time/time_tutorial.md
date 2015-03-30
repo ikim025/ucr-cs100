@@ -182,7 +182,6 @@ For methods that takes less than 1 seconds, I suggest you use `clock()` as it is
 For methods that takes more than 1 seconds, you could use `difftime()` as `time_t` increment slower than `clock_t`, preventing `clock_t` from reaching `DBL_MAX` in case of a large file such as `/usr/share/dict/linux.words`.
 
 One possible implementation:
-
 ```
 double elapsedTime;
 clock_t startClock, endClock;

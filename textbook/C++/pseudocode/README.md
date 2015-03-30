@@ -21,37 +21,34 @@ What are some advantages of pseudocode?
   	http://en.wikipedia.org/wiki/Test-driven_development
 
 
-Although there are no real rules for pseudocode I will give a couple basic rules I use for each pseudocode example. 
+Although there are no real rules for pseudocode we will give a couple basic rules we use for each pseudocode example. 
 Our example will be of a relatively simple neuronal circuit model.
 
 Background
 -------------------------------------------
 In order to understand exactly what the program should ultimately do, we should first discuss some basic properties of neurons, and how they influence each other's activity.
 
-A neuron is defined as an electrically excitable cell that can process and transmit information through electrical or chemical signals. 
-The membrane of the neuron contains specialized proteins that generate differences in ion concentrations between the external and internal parts of the neuron. 
-This imbalance in ion concentrations between the external and internal parts of the neuron leads to a charge difference across the membrane called the membrane potential. When the neuron is at rest, i.e. not receiving or transmitting signals, the membrane potential is negative. The neuron becomes excited when the membrane potential becomes less negative. 
-Neurons tap in to the energy stored in the ion concentration gradients in order to send electrical pulses to neighboring cells, thereby transmitting information from one cell to another. A
-single neuron can receive input from thousands of other neurons, and in turn output information onto thousands of other cells. 
-For the purposes of this model, we focus on local connections between 2 neurons.
+A neuron is defined as an electrically excitable cell that can process and transmit information through electrical or chemical signals. The membrane of the neuron contains specialized proteins that generate differences in ion concentrations between the external and internal parts of the neuron. 
+This imbalance in ion concentrations between the external and internal parts of the neuron leads to a charge difference across the membrane called the membrane potential. 
+When the neuron is at rest, i.e. not receiving or transmitting signals, the membrane potential is negative. 
+The neuron becomes excited when the membrane potential becomes less negative. 
+Neurons tap in to the energy stored in the ion concentration gradients in order to send electrical pulses to neighboring cells, thereby transmitting information from one cell to another. 
+A single neuron can receive input from thousands of other neurons, and in turn output information onto thousands of other cells. For the purposes of this model, we focus on local connections between 2 neurons.
 
 Neurons form specialized connections called synapses which allow them to receive and send information. 
-Synapses are said to be either excitatory or inhibitory depending on how it influences
-the activity of the receiving (or postsynaptic) neuron. 
+Synapses are said to be either excitatory or inhibitory depending on how it influences the activity of the receiving (or postsynaptic) neuron. 
 At excitatory synapses, the postsynaptic neuron is excited by the release of excitatory chemicals (or neurotransmitters) from the presynaptic neuron. 
 When the excitatory neurotransmitter, glutamate for example, is released from the presynaptic neuron into the synapse, it will bind to glutamate receptor proteins, AMPA receptors for example, on the postsynaptic neuron and allow positive ions to rush into the neuron. 
 This sudden influx of positive ions will cause the membrane potential to become more positive thereby exciting the cell. 
 At inhibitory synapses, the postsynaptic neuron will become inhibited by the release of inhibitory neurotransmitters (i.e. GABA) by the presynaptic neuron. 
-The inhibitory neurotransmitter GABA will cross the synapse and bind to GABA receptors on the postsynaptic
-neuron resulting in the influx of negatively charged ions. 
+The inhibitory neurotransmitter GABA will cross the synapse and bind to GABA receptors on the postsynaptic neuron resulting in the influx of negatively charged ions. 
 This influx of negatively charged ions will make the membrane potential more negative and prevent the neuron from sending electrical signals.
 Below is a cartoon showing the synaptic connection between two neurons:
 
 ![Output sample](https://github.com/ogonz007/neuron/blob/master/synapse.gif)
 
 
-Based on the brief description of some neuronal properties, we will generate code that models a small network of two neurons. 
-Neuron 1 will receive a brief excitatory sine wave stimulus.
+Based on the brief description of some neuronal properties, we will generate code that models a small network of two neurons. Neuron 1 will receive a brief excitatory sine wave stimulus.
 Neuron 1 will then send an electrical pulse to Neuron 2. 
 This signal will result in the excitation of Neuron 2 which will then send a signal back to Neuron 1. 
 In this sense, the two neurons will form recurrent connections with each other. 
@@ -107,8 +104,8 @@ while time is less than the total time, we want to calculate the neurons' respon
             
     print external input and neuronal activity to files
 ```
-Now that we have a general idea of what needs to occur in our program and in what order it should occur, we should now consider how the information should flow in the program. 
-In the next example we will show how to create a flowchart of the program to help you think through the logic (if, while, ...) of the program.
+Now that we have a general idea of what needs to occur in our program and in what order it should occur, we should now consider how the information should flow in the
+program. In the next example we will show how to create a flowchart of the program to help you think through the logic (if, while, ...) of the program.
 
 ### 2. Flowchart pseudocode
 
@@ -178,7 +175,7 @@ void fun(int t, RS (&cellType1)[ncellType1], RS (&cellType2)[ncellType2], bool (
 
 ```
 
-We are providing an example of code based pseudocode for one of the functions in the fully working program below. 
+Here, we have provided an example of code based pseudocode for one of the functions in the fully working program below. 
 This type of pseudocode should be generated for particularly difficult algorithms or functions. 
 You will use this code based pseudocode to easily transfer to code, you can track how we did that in the final code presented next.
 

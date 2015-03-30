@@ -2,7 +2,7 @@
 
 This markdown file demonstrates how to use the system calls `opendir`, `readdir`, and `closedir` through the example program `dir_demo`. 
 `dir_demo` is a program that accepts a single argument; if the argument is a path to a directory name, then `dir_demo` will print out the contents of the directory on a single line.
-For example, if we pass in `../syscalls` or `.` to dir_demo, it would print out all the markdown and source code files within this directory.
+For example, if we passed in `../syscalls` or `.` to dir_demo, it would print out all the markdown and source code files within this directory.
 `dir_demo` uses the system calls `opendir`, `readdir`, and `closedir`, as well as several streams and structs unique to these system calls and directories to achieve the intended result.
 The source code is available in [`dir_code.cpp`](./dir_code.cpp).
 
@@ -19,10 +19,9 @@ if(NULL == (dirp = opendir(argv[1])))
     exit(1);
 } 
 ```
-Notice if `opendir` fails it returns `NULL`, and we are performing proper error checking.
+Notice if `opendir` fails it returns `NULL`, and we're performing proper error checking.
 
-Next, we use `readdir` to read through the directory's contents. 
-We pass in the `DIR*` to `readdir` and it returns a `struct dirent`, which holds the data of our directory names that we print out:
+Next, we use `readdir` to read through the directory's contents. We pass in the `DIR*` to `readdir` and it returns a `struct dirent`, which holds the data of our directory names that we print out:
 
 ```
 struct dirent *filespecs;

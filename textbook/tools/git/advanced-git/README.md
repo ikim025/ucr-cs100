@@ -1,5 +1,4 @@
 #advanced git: the introductory tutorial
-
    After the end of this tutorial, you should know how to add a remote, fetch the contents a remote, reset your HEAD pointer to a different commit, run a git blame, and git stash some changes that you do not want to commit just yet.
    
    This is an introductory tutorial, so the goal is to get you acquainted with some of the more advanced features of git. 
@@ -17,8 +16,7 @@ If you would like a complete run down of how to use a certain command, you can c
    * [git stash](http://git-scm.com/docs/git-stash)
 
 #starting git
-
-We will be assuming that you have completed the git lab for this course, and you have some general knowledge about how git works. 
+I will be assuming that you have completed the git lab for this course, and you have some general knowledge about how git works. 
 You can use `git init`, `git pull`, `git push`, `git checkout`, `git branch`, and `git tag`. 
 If you don't know, here is a basic rundown.
 
@@ -32,7 +30,6 @@ If you don't know, here is a basic rundown.
 Now to the juicier parts of git! :]
 
 #git remote
-
 `git remote` lets you manage a set of tracked repositories. 
 These tracked repositories are labeled as 'remotes'.
 
@@ -54,7 +51,7 @@ To configure a new remote, you can use the command:
     git remote add <remote_name> <git_remote_URL>
     
 In this case, you can change `remote_name` to anything you want. 
-I chose to put down my `remote_name` as `upstream`, because I want to update my forked repository with the original repository that I forked from.
+we chose to put down my `remote_name` as `upstream`, because we want to update my forked repository with the original repository that I forked from.
 
 The `git_remote_url` is the remote link that you can obtain from the Github repository page.
 
@@ -70,7 +67,7 @@ To complete this for your repository, you can use the following command:
 
     git fetch <remote_name>
 
-If we wanted to fetch from Mike Izbicki's repository, then we would configure a remote to his repository labeled `upstream` and run `git fetch upstream`.
+If we want to fetch from Mike Izbicki's repository, then we would configure a remote to his repository labeled `upstream` and run `git fetch upstream`.
 This will pull all the current files that he has in his repository.
     
 If you want to combine all his files with your repository, you can try to merge it with your branch with the following command:
@@ -89,7 +86,6 @@ In a big group project, several versions of the same repository can be floating 
 Therefore, it's important to have the updated versions of the repository, as bugs can be squashed, and fixes will have been completed.
 
 #git rebase
-
 `git rebase` allows you to do many things, but the main feature we will cover in this tutorial is squashing commits.
 Squashing commits cleans up your commit history. 
 Instead of having 15 commits, you can have 3 or 4 commits that focus more on features that were added or removed.
@@ -118,7 +114,6 @@ After you exit out of the window, git will automatically try to rebase your repo
 You should solve any merge conflicts that you get, and when it finishes completely, your project should reflect the commits that you have picked and squashed.
 
 #git reset
-
 `git reset` reverses the HEAD pointer to the specified commit or state.
 
 If you accidently changed your repository, and added a bunch of empty commits with git rebase, then you can use git reset to revert the repo to the commit number of your choosing. The command is:
@@ -132,11 +127,9 @@ The first one is `--hard`.
 This resets the pointer back to the commit number that you wish to reset to.
 
 ##NOTE: THIS WILL RESET YOUR HEAD POINTER, AND YOU WILL LOSE YOUR WORK.
-
 You should only do this if you really need to reset your repository back to it's original format.
 
-The second one is `--soft`. 
-This mode will reset your repository to the state at that time, and keeps your changes as `changes to be committed`.
+The second one is `--soft`. This mode will reset your repository to the state at that time, and keeps your changes as `changes to be committed`.
 
  
  #git diff
@@ -151,9 +144,7 @@ This mode will reset your repository to the state at that time, and keeps your c
 It can tell you the differences in the files that you have, or the files that you need to add in your next commit.
  
  #git blame 
-
- `git blame` is a cool little feature in git that allows you to see who wrote what in the repository. 
-The command to use this feature is:
+ `git blame` is a cool little feature in git that allows you to see who wrote what in the repository. The command to use this feature is:
  
     git blame <filename>
 
@@ -161,7 +152,7 @@ The command to use this feature is:
 
 This will pull up the contents of the file, along with the commit number that the line was changed in, as well as the person who changed it, and at what time it was changed at.
 
-If you want to know who changed certain lines, you can use the -L flag to figure out who changed those lines. 
+If you want to know who changed certain lines, you can use the -L flag to figure out who changed those lines.
 You can use the command:
 
     git blame -L <line-number><ending-linenumber> <filename>
@@ -173,12 +164,11 @@ You can use the command:
 This will tell you who edit the file within those line numbers on the command line instead of pulling up a text-editor.
  
  #git stash
-
 `git stash` is another cool feature that allows you to save your changes without making any commits. 
 You can `git stash` several times, and later apply those changes when you see fit.
  
  You can run a `git status` to check what changes you have on the project. 
-This allows you to run a `git stash` if you need to.
+This allows you run a `git stash` if you need to.
  
  To stash your changes without committing them, use:
  
@@ -213,7 +203,8 @@ If you apply without putting a number, then you apply the most current one in th
 If you need more information on git, here are some resources that you can checkout.
 
 [git-scm](http://git-scm.com/) - 
-This website is really helpful for other advanced techniques, and gives plenty of examples to help you with more flags and other commands. All the man pages are on this website.
+This website is really helpful for other advanced techniques, and gives plenty of examples to help you with more flags and other commands. 
+All the man pages are on this website.
 
 [atlassian](https://www.atlassian.com/git/tutorials/setting-up-a-repository) - 
 This guide is very helpful for learning how to set up the repo, and making commits.

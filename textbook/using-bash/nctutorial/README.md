@@ -4,24 +4,12 @@
 
 A short tutorial, on a very complicated and versatile tool.
 
-## Table of Contents
-
-* [Background](#background)
-* [Basic Usage](#basic-usage)
-* [Example Uses](#example-uses)
-  - [Chat System](#chat-system)
-  - [File Transfer](#file-transfer)
-  - [Port Scanning](#port-scanning)
-  - [Proxying and Port Forwarding](#proxying-and-port-forwarding)
-* [Further Reading](#further-reading)
-
 ### Background
 
 `netcat` is a service used to read and write from network connections, so it can be used for good, or it can be used for evil.
-`netcat` is usually described as a "hacker" tool, as well as a "swiss army knife". 
+`netcat` has been described as a "hacker" tool, as well as a "swiss army knife". 
 `netcat` can be explained by using another similar command called `telnet`. 
-`telnet` does a lot of the same things as `netcat`, but it
- opens up a terminal-link prompt for the user to use. 
+`telnet` does a lot of the same things as `netcat`, but it opens up a terminal-link prompt for the user to use.
 `netcat` does not, so you can automate tasks and make your life easier by using I/O redirection as well as piping with `netcat`.
 
  `netcat` and `telnet` both rely on the usage of computer networking ports. 
@@ -32,8 +20,7 @@ One person puts something in the bucket and the other person takes the thing out
 This explanation is vastly oversimplified, but it will do for our purposes. 
 However, if you are interested in ports and their role in the internet, you should look at these articles on [TCP](http://en.wikipedia.org/wiki/Transmission_Control_Protocol) and 
  [IP](http://en.wikipedia.org/wiki/Internet_Protocol). 
-Another important note is the port assignment. 
-Many ports are registered for specific programs, so we should not use them for our tests. 
+Another important note is the port assignment. Many ports are registered for specific programs, so we should not use them for our tests. 
 Luckily most Linux kernels allow the ports in the range 32768 to 61000 to be used for a wide variety of things and are not bound to one program or process.
 
 ### Basic Usage
@@ -42,16 +29,14 @@ To use the `netcat` command all you have to do is type `nc IPADDRESS PORT` at a 
 For most of this tutorial, we will connect to our own computers. 
 The IP address of our own computer is `127.0.0.1`, or more simply `localhost`. 
 The port can be anything less than 2^16. 
-Some common ports are are 22 for file transfers (SSH), 80 for internet browsers (HTTP), 443 for secure internet
-browsing (HTTP over SSL), and, a fun one, 3724 for Xbox Live.
+Some common ports are are 22 for file transfers (SSH), 80 for internet browsers (HTTP), 443 for secure internet browsing (HTTP over SSL), and, a fun one, 3724 for Xbox Live.
 
 If you type `nc localhost 32981` you probably will not see anything in the output. 
 This is because `netcat` is going to that port, checking if anything is there, and returning what it finds; It will output what is on that port on the standard output. 
 However, if you type `nc -l localhost 32981` it will appear as though your terminal has frozen. 
 Let it go! 
 It is fine. 
-What you told `netcat` to do is to go to port 32981 and wait there until someone or something gives it some data. 
-`-l` tells `netcat` to listen to a port, rather than try to connect to it. 
+What you told `netcat` to do is to go to port 32981 and wait there until someone or something gives it some data. `-l` tells `netcat` to listen to a port, rather than try to connect to it. 
 You cannot use this with the -p option. 
 As soon as it receives the data, `netcat` will close. 
 Now we can start looking at some optional features of `netcat` as well as some examples to illustrate them. 
@@ -105,7 +90,9 @@ The only thing to remember is that the computers must be on the same network for
 
 #### File Transfer
 
-This is another simple system that will show you how to transfer files with `netcat` along with a little of bit of piping with `netcat`. You will need two windows or two computers like before. On one terminal, enter this:
+This is another simple system that will show you how to transfer files with `netcat` along with a little of bit of piping with `netcat`. 
+You will need two windows or two computers like before. 
+On one terminal, enter this:
 ```
 cat file | nc -l 32981
 ```
@@ -120,8 +107,9 @@ A man shows up, takes what is in the bucket, and both men leave.
 This command will close `netcat` on the server because we did not specify to keep the connection open. 
 In order to keep the connection open, you would have to use the `-k` option. 
 This option cannot be used with `-l`.
-This is a simple, but powerful example; you now know that you can "load up" the server and that you can redirect the output to files. 
-Of course if we did not redirect the output, the contents of the file would have been printed to standard output instead.
+This is a simple, but powerful example; you now know
+that you can "load up" the server and that you can redirect the output to files. 
+Of course if we do not redirect the output, the contents of the file would have been printed to standard output instead.
 
 #### Port Scanning
 
@@ -136,7 +124,8 @@ Start by running this on a terminal:
 ```
 nc -z localhost 80
 ```
-`-z` makes `netcat` scan for listeners. This cannot be used with the -l option. 
+`-z` makes `netcat` scan for listeners. 
+This cannot be used with the -l option. 
 You must specify a port, or range of ports to scan. 
 This command checks to see if anything is listening on port 80, however the output can get a little tricky. 
 First of all, the command will not print anything if there is nothing listening on the port. 
@@ -152,7 +141,8 @@ But you would know that if you read the flag section, right?
 So if nothing is listening on port 80, you can run your web server. 
 But if you get output, that means something is running on that port and you should close it before trying to make a web server.
 
-Port scanning also works on domain names! Here is an example:
+Port scanning also works on domain names! 
+This is an example:
 ```
 abarb014@nctutorial$ nc -z -v -w 1 google.com 80
 found 0 associations
@@ -170,7 +160,7 @@ abarb014@nctutorial$
 `-w` specifies a timeout for `netcat` and it has no purpose with the -l option. 
 It must be immediately followed by a wait time in seconds. 
 From the output, you can see the source IP and port, as well as the destination IP and port. 
-We covered my IP and port for some security, but notice at the bottom it said the connection to google was a success! 
+so far, we are covering our IP and port for some security, but notice at the bottom it said the connection to google was a success! 
 Yay! 
 This is not as useful as checking your own ports, but you might be able to check for some open ports on the computers that serve a website you do not particularly like. 
 You can find out more about that on some shadier websites, but as for this tutorial, we will be good little hackers.
@@ -193,8 +183,7 @@ This is done with the following command:
 nc -l 32981 | nc www.amazon.com 80
 ```
 What we are doing is making a `netcat` server on port 32981. 
-Requests to that port will be piped (or forwarded) to the amazon.com webserver on port 80. 
-Now if we go to a web browser and type `localhost:32981` in the address bar, nothing will happen! 
+Requests to that port will be piped (or forwarded) to the amazon.com webserver on port 80. Now if we go to a web browser and type `localhost:32981` in the address bar, nothing will happen! 
 Why? 
 Well, the first call to `netcat` makes the server and the second one redirects the request, but we are not doing anything with the reply from amazon! 
 We can fix this with a two way pipe, or "named pipe". 
@@ -206,9 +195,8 @@ mkfifo pipe
 nc -l 32981 < pipe | nc www.amazon.com 80 > pipe
 ```
 This time if you refresh the browser, we get output! 
-Woo! T
-his is because we redirect standard input to come from the pipe, which at first has nothing, and we redirect the
-output from amazon to the pipe. 
+Woo! 
+This is because we redirect standard input to come from the pipe, which at first has nothing, and we redirect the output from amazon to the pipe. 
 We can read and write from this pipe, so not only do we get output from the browser, but we can send more input to get new webpages. 
 Using this technique along with some crafty BASH scripting skills, you can make a small, very insecure webserver.
 
@@ -223,23 +211,26 @@ This is an incredibly basic proxy, but with some work and added code, you can bu
 
 The same thing can be done, but instead of websites, with ports. 
 If your company or school blocks a port for outgoing requests, then you can forward requests to that pipe to go through a different pipe. 
-For example, port 80 is blocked. No matter! Simply use:
+For example, port 80 is blocked. 
+No matter! 
+Simply use:
 ```
 nc -l 80 | nc localhost 32981
 ```
-Now any requests made to port 80 will be forwarded to port 32981. Yay for you!
+Now any requests made to port 80 will be forwarded to port 32981. 
+Yay for you!
 
 ### Further Reading
 
-Back in the beginning, `netcat` is referred to as a "swiss army knife" by many. 
+As I mentioned back in the beginning, `netcat` is referred to as a "swiss army knife" by many. 
 It is a great little tool for many things, but it is not always the best tool.
 You would not cut a tree down with a spoon, right? 
-We are looking in the port scanning section that there are better tools, like `nmap`, and `netstat`. 
+We saw in the port scanning section that there are better tools, like `nmap`, and `netstat`. 
 Also, many system administrators might block usage of `netcat` because of the possibility of malicious actions with it. 
 You might want a prompt to play around with rather than sending one whole chunk of commands to the server. 
 In that case, you are probably better off using `telnet`. 
 With named pipes and redirections running wild, the syntax for `netcat` might be a little too crazy for you, so you might be better off with a different version of `netcat` like `ncat`. 
-Maybe you are more interested in breaking into systems and nothing else, then you might be interested in the Metasploit framework or Wireshark to read those unencrypted chat sessions I taught you to make!
+Maybe you are more interested in breaking into systems and nothing else, then you might be interested in the Metasploit framework or Wireshark to read those unencrypted chat sessions we taught you to make!
 
 Here is a link dump if you are interested in learning more about `netcat` or some of these other tools:
 

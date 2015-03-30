@@ -24,11 +24,6 @@ map<string, int> example_map;
 Let's look at an example of a map in use:
 
 ```c++
-#include <iostream>
-#include <map>
-
-using namespace std;
-
 int main() {
     //create a map
     map<string, int> books;
@@ -45,8 +40,7 @@ We then add an element ```451``` with the key ```"fahrenheit"```.
 we then output the element associated with the key ```"fahrenheit"```.
 
 ## Maps with function pointers
-
-Let's picture a nightmare scenario
+Let's picture a nightmare scenario.
 Suppose that your evil professor assigns you the task of replicating the ```ls``` terminal program.
 ```ls``` has a **lot** of optional flags, some of them doing exactly the same thing (ex. ```-a``` and ```--all```).
 
@@ -73,7 +67,7 @@ That could get pretty lengthy.
 If we have 26 shorthand flags and 26 longhand flags, 
 we would have to make 52 if-else statements PLUS CODE.
 This is where we bring out our inner mad (computer) scientist.
-What if we create a map with [function pointers](http://www.cprogramming.com/tutorial/function-pointers.html) as elements?
+What if we created a map with [function pointers](http://www.cprogramming.com/tutorial/function-pointers.html) as elements?
 
 ```c++
 void printAll();
@@ -104,9 +98,9 @@ int main(int argc, char* argv[]) {
 
 ```
 
-By using function pointers, we can make the code more readable and made it easy to add more flags.
+By using function pointers, we made the code more readable and made it easy to add more flags.
 
-For more examples of how to use maps, check the files included with this tutorial.
+For more examples of maps being used, check the files included with this tutorial.
 Don't limit your imagination to those examples though!
 
 For more information, you can look at the relevant pages on 

@@ -6,7 +6,6 @@ Meanwhile, the new version of the code may change less than 1MB compared with th
 Git has offered us a powerful tool, ```patch```, that we can update the projects under extremely low cost.
 
 ###Create patch with git diff
-
 First, let's clone a repo and make some change:
 ```
 $ git clone https://github.com/jinhangwang/example-repo.git
@@ -20,7 +19,6 @@ index 869ef75..fe8efa4 100644
 +++ b/README.md
 @@ -1 +1,2 @@
  # example-repo
-
 +Add a new line in README!!!
 ```
 The output of ```git diff``` is a typical patch file's content.
@@ -115,8 +113,7 @@ index fe8efa4..544f799 100644
 -- 
 1.9.3 (Apple Git-50)
 ```
-This time, more information is offered! 
-We can tell when and who submitted these files, etc.
+This time, more information is offered! We can tell when and who submitted these files, etc.
 
 For the `patch` created by `git-format-patch`, we have to use `am` to apply it:
 ```

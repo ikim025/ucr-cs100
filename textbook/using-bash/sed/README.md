@@ -4,8 +4,8 @@
 
 ### <a name="How Does it Work?"></a>How Does it Work?
 
-`sed` works by maintaining two data buffers (temporary containers): the active **pattern**
-space and the auxiliary **hold** space. Both begin empty.
+`sed` works by maintaining two data buffers (temporary containers): the active **pattern** space and the auxiliary **hold** space. 
+Both begin empty.
 
 For our purposes, let&#39;s look at the following `sed` command:
 
@@ -13,7 +13,8 @@ For our purposes, let&#39;s look at the following `sed` command:
 sed 's/Hello/Goodbye/' testfile
 ```
 
-`sed` operates by going line by line of the testfile and placing each line into the **pattern** space after removing any leading newline characters.
+`sed` operates by going line by line of the testfile and placing each line
+into the **pattern** space after removing any leading newline characters.
 
 So if we had a file containing,
 
@@ -27,12 +28,12 @@ Computer Science is fun!
 `sed` would take the string "Hello World!\n," remove the newline character, and place the string into the pattern space. 
 Once the text is in the pattern space, the provided commands are executed. 
 Now that "Hello World!" is in the pattern space, the `'s/Hello/Goodbye/'` command is applied to it. 
-A command will only execute if the text in the pattern space qualifies for the command, or matches the pattern. Since "Hello" was present in the pattern space, substitution command will swap out "Hello" with "Goodbye."
+A command will only execute if the text in the pattern space qualifies for the command, or matches the pattern. 
+Since "Hello" is present in the pattern space, substitution command will swap out "Hello" with "Goodbye."
 
 When the end of the line is reached, the pattern space is output to the output stream (standard output) and has its newline replaced back in. 
 After `'s/Hello/Goodbye/'` has been applied the pattern space, the newline is added back to the string. 
-So the output from the first line will be "Hello World!\n." 
-Another cycle then begins for the next line of text in the file. 
+So the output from the first line will be "Hello World!\n." Another cycle then begins for the next line of text in the file. 
 Next, the string "This is a test file\n" is placed into the pattern space. 
 This time however, "Hello" is not present, so `'s/Hello/Goodbye/'` does not execute, and "This is a test file\n" is simply output to the output stream. 
 The same will occur for the final string. 
@@ -41,8 +42,7 @@ The **pattern** space is emptied out between cycles; however, the **hold** space
 This example does not actually need to use the hold space since there was no need for temporary storage. 
 So let&#39;s look at a different example that does use the hold space.
 
-Say we want to capture the line before a line that matches a search pattern. 
-The command,
+Say we want to capture the line before a line that matches a search pattern. The command,
 
 ```
 sed -n '/regex/{x;1!p;x}; h'
@@ -96,7 +96,8 @@ sed -i 's/aol.com/gmail.com/' oldlist      #the '-i' flag modifies the passed in
 
 which replaces the first occurrence of "aol.com" on each line of the input source with "gmail.com".
 
-**NOTE:** `sed` can be written with or without single quotations. Although it is better practice to always include them.
+**NOTE:** `sed` can be written with or without single quotations. 
+Although it is better practice to always include them.
 
 Alternatively, you can accomplish the same goal by piping the old email list to `sed`:
 
@@ -138,7 +139,8 @@ Each script expression in "sed.sh" will make a pass through "numbers" and make i
 So when the above command finishes, every digit in the file will be converted to its English name.
 
 ### <a name="What Can We Do With it?"></a>What Can We Do With it?
-`sed` can be used for more than just simple text transformations. With regular expressions, `sed` has potential to handle very complex transformations. 
+`sed` can be used for more than just simple text transformations. 
+With regular expressions, `sed` has potential to handle very complex transformations. 
 You can build an entire program using only `sed` (<i.e./> a script that capitalizes all the vowels in a text file and so forth). 
 You can also make `sed` behave like other commands (i.e. `grep` and `head`).
 
@@ -166,7 +168,7 @@ There are four parts to the substitution command:
 delimiter.
 
 *2.* The character after `s` is called a delimiter. 
-The delimiters are MUST HAVE to parse the command, to separate the substitution command from the search pattern and separate the search pattern from the replacement string. 
+The delimiters are needed to parse the command, to separate the substitution command from the search pattern and separate the search pattern from the replacement string. 
 In the case of the above example, the delimiter is a slash, but the delimiter can be any character you want as long as there are three of them:
 
 ```
@@ -211,7 +213,8 @@ All you would have to type to make these necessary changes is one line into your
 sed -i 's/2012/2014/g' README.md
 ```
 
-**NOTE:** The `-i` flag makes `sed` perform in-text editing. Or, in other words, it reads the file, applies the commands, and places the results back into the original file. 
+**NOTE:** The `-i` flag makes `sed` perform in-text editing. 
+Or, in other words, it reads the file, applies the commands, and places the results back into the original file.
 **Using the `-i` flag is not reversible so you should consider making a backup of a file before changing it.** In fact, if you add a file extension to `-i`
 
 ```
@@ -221,8 +224,7 @@ sed -i.backup 's/2012/2014/g' README.md
 `sed` will create a copy of the "README.md" named "README.md.backup" before the changes are made.
 
 Sure, you could argue that the number of year numbers you would have to change wouldn&#39;t be SO big that you couldn&#39;t correct them by hand relatively quickly. 
-But, I would say this is
-beside the point. 
+But, we would say this is beside the point. 
 The point is that while you are searching through your README looking for the incorrect year, you could be doing something more worthy of your attention.
 
 With that in mind, let&#39;s move on to the next example.
@@ -235,8 +237,7 @@ Since there is no way for him to anticipate the exact first three numbers for ea
 Regular expressions themselves are worthy of their own tutorial, so we will not delve too deep into the intricacies of writing one, but we will use them to demonstrate `sed`&#39;s power. 
 For a detailed introduction to regular expressions, please visit [this][regex] tutorial.
 
-The president&#39;s regular expression will require a `^`, which in a regular expression dictates that the match must begin at the start of the line, a
-`[[:digit:]]`, which translates to the first character of a match needing to be a digit, and lastly a `&`, which is a variable that represents the pattern that was matched.
+The president&#39;s regular expression will require a `^`, which in a regular expression dictates that the match must begin at the start of the line, a `[[:digit:]]`, which translates to the first character of a match needing to be a digit, and lastly a `&`, which is a variable that represents the pattern that was matched.
 
 Since the president wants to capture the first three digits of each line, he will need three `[[:digit:]]`&#39;s and since he needs to place parentheses around those first three digits, he will simply put parentheses around the `&` after the second delimiter.
 
@@ -255,15 +256,15 @@ We will look at 2 commands that `sed` can easily imitate: `grep` and `head`.
 * `grep`
 
 The `grep` bash command searches a file for specific text. 
-Like `sed`, `grep` takes in a search pattern to compare input to. Once `grep` finds a match, it prints the line with the matching text to standard output.
+Like `sed`, `grep` takes in a search pattern to compare input to. 
+Once `grep` finds a match, it prints the line with the matching text to standard output.
 
 In order for `sed` to do what `grep` does, it will need two additional things: the "-n" option and the "p" command.
 
 The "-n" turns off `sed`&#39;s printing unless requested with the "p" option, which duplicates the input.
 
 Say a secretary at Google wants to make sure they included "employee45@gmail.com" in a file called "elist" containing all the emails of the employees in the office. 
-Using `grep`, the secretary could search
-for the email with,
+Using `grep`, the secretary could search for the email with,
 
 ```
 grep "employee45@gmail.com" elist
@@ -287,8 +288,7 @@ As explained with `grep`, the "p" `sed` command will duplicate all of the input 
 The previously mentioned secretary is tasked with creating a new list of emails that is sorted in alphabetical order by the last name of each employee. 
 Google has just assigned a Scott Adams to the office and has the employee email, "adamsscott@gmail.com". 
 The secretary insists on alphabetizing the email list by hand so they must anticipate where on the list they will need to insert this new email. 
-Instead of opening the file and looking through all the emails, they only want to look at the beginning of the list since they know there hasn&#39;t been many new additions to the office with a last name beginning
-with "A". 
+Instead of opening the file and looking through all the emails, they only want to look at the beginning of the list since they know there hasn&#39;t been many new additions to the office with a last name beginning with "A". 
 So they screen a small amount of emails one at a time. 
 To do this they can use `head` to print the first ten emails in the list,
 
@@ -312,7 +312,8 @@ If only a single number limit is included,
 sed -n '5 p' elist
 ```
 
-only that *nth* line of the input file will be output. In this case, only the fifth line will be output.
+only that *nth* line of the input file will be output. 
+In this case, only the fifth line will be output.
 
 Additionally, if you include `!` with a line range, you will capture the opposite of the line range. 
 So the command,

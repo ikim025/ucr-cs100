@@ -2,7 +2,7 @@
 
 ##All begin with a simple example
 
-Let's begin with a "hello world" shell script example to expound how to write a script:
+Let us begin with a "hello world" shell script example to expound how to write a script:
 
 ```
 #!/bin/bash
@@ -20,7 +20,6 @@ $ echo 'Hello world!!!'
 Hello world!!!
 ```
 
-
 * The second line is a comment, because it begins with '#'. 
 Everything after '#' in the current command line will be ignored:
 
@@ -30,8 +29,7 @@ Hello world!!!
 ```
 
 * We can see that every shell script includes the first line. 
-It looks like a comment since it starts with '#'. 
-However, it is created on purpose because it tells the system which interpreter (such as bash, ruby, python, and others) should be used to execute the followed script. 
+It looks like a comment since it starts with '#'. However, it is created on purpose because it tells the system which interpreter (such as bash, ruby, python, and others) should be used to execute the followed script.
 For this script, it runs in the bash shell. 
 And '#!' is a special character construct called shebang.
 
@@ -44,7 +42,8 @@ The following tutorial has two parts:
 
 To successfully run our shell script, we need to make our script become executable. 
 For the above "hello world" example, we save it as 'hello.sh'. 
-For a shell script file, try to use the file extension as '.sh'. So it can be easily identified by us as shell script.
+For a shell script file, try to use the file extension as '.sh'. 
+So it can be easily identified by us as shell script.
 
 There are two ways to execute a shell script:
 
@@ -227,8 +226,7 @@ For more details, you can check this link: http://www.lehman.cuny.edu/cgi-bin/ma
 
 ###convert
 
-'convert' between image formats as well as resize an image, blur, crop, despeckle, dither, draw on, flip, join, re-sample, and much more. 
-For example:
+'convert' between image formats as well as resize an image, blur, crop, despeckle, dither, draw on, flip, join, re-sample, and much more. For example:
 
 ```
 $ convert image.jpg image.png
@@ -240,7 +238,7 @@ For more details, please check this link: http://linux.die.net/man/1/convert
 
 ###test
 
-Before I introduce the 'if' statement, I want to introduce the 'test' statement first, because it is often used with the 'if' statement to perform true/false decisions. 
+Before we introduce the 'if' statement,we want to introduce the 'test' statement first, because it is often used with the 'if' statement to perform true/false decisions. 
 The following example tests whether there are arguments provided:
 
 ```
@@ -266,8 +264,7 @@ There is a summary for test operators in the man page, here is the link: http://
 
 ###if
 
-Based on the exit status of the commands in the 'if' condition, the system can decide which commands to run. 
-For example:
+Based on the exit status of the commands in the 'if' condition, the system can decide which commands to run. For example:
 
 ```
 #!/bin/bash
@@ -285,9 +282,10 @@ echo "$1 is negative"
 fi
 ```
 
-For the first 'if', I already introduced that it decides whether there are provided arguments. 
+For the first 'if', you know that it decides whether there are provided arguments. 
 For the second 'if', the condition is: if the first provided argument is greater than 0, then the command is echo "$1 is positive". 
-Then 'elif' represents 'else if'. Finally, we use 'fi' to end this 'if/else' statement.
+Then 'elif' represents 'else if'. 
+Finally, we use 'fi' to end this 'if/else' statement.
 
 For more details, please check this link: http://ss64.com/bash/if.html
 
@@ -315,8 +313,7 @@ For more details, please check this link: http://linux.die.net/man/1/while
 
 ####until
 
-In order to do the same work as 'while', the condition of 'until' is the reverse condition of 'while'. 
-For example:
+In order to do the same work as 'while', the condition of 'until' is the reverse condition of 'while'. For example:
 
 ```
 #!/bin/bash

@@ -11,22 +11,22 @@
 
 
 # Introduction
-Process in the beginning of our coding carreer:
+When I began coding, my process consisted of:
 
   * Writing down the problem (homework or personal project)
   * Thinking of some useful functions that might help me
   * Deciding what objects to use
   * Opening up my editor and just start programming
-  * Recognizing my failing plan and throw aside my plan, and struggle to complete what we set out to do
+  * Realizing I didn't think of everything and throw aside my plan and struggle to complete what I set out to do
 
-Without any clear thoughts on how coding works, alot of time is thrown to garbage. 
-Realizing this pain point, we start to practice Test Driven Development.
+A lot of time was wasted planning a design that wouldn't work, but also rewriting code without a clear idea of what my code was doing.
+
+Realizing this pain point I started practicing Test Driven Development.
 
 ## What is Test Driven Development
 
 Test Driven Development (TDD) is a [software development process](http://en.wikipedia.org/wiki/Software_development_process).
-Development processes are methodologies to write code in stages (or cycles). 
-In general these methodologies are meant to help speed up development, minimize bugs, and keep code bases malleable.
+Development processes are methodologies to write code in stages (or cycles). In general these methodologies are meant to help speed up development, minimize bugs, and keep code bases malleable.
 
 Even though there are many different approaches to development, I prefer TDD because its style is to keep code simple and robust.
 
@@ -41,17 +41,12 @@ TDD's development cycle is simple:
 
 # What TDD Is Not
 
-TDD is not a magic bullet. 
-Even though quality of code is higher, TDD can still lead to its own
-[problems](http://blog.james-carr.org/2006/11/03/tdd-anti-patterns/). 
-Also it has known issues for not being sufficient testing for interfaces such as UI, databases, or networking.
+TDD is not a magic bullet. Even though quality of code is higher, TDD can still lead to its own
+[problems](http://blog.james-carr.org/2006/11/03/tdd-anti-patterns/). Also it has known issues for not being sufficient testing for interfaces such as UI, databases, or networking.
 
-Because a test was written and passed does not mean that it is bug free. 
-A programmer may not think of every situation.
+Because a test was written and passed does not mean that it is bug free. A programmer may not think of every situation.
 
-TDD is meant to test and verify your own code. 
-It's not necessary to test libraries that are included in your code. 
-An example of an unnecessary test would be to test std::string `std::string("test") == "test"`. 
+TDD is meant to test and verify your own code. It's not necessary to test libraries that are included in your code. An example of an unnecessary test would be to test std::string `std::string("test") == "test"`. 
 
 # Examples
 
@@ -59,8 +54,8 @@ To give examples of TDD I will be using the [boost test framework](http://www.bo
 
 ## Basic Example
 
-This is meant to be a very short introduction to testing. 
-For a basic problem to solve we will be using the first problem on
+This is meant to be a very short introduction to testing. For a basic problem to
+solve I will be using the first problem on
 [projecteuler](https://projecteuler.net/problem=1)
 
 `Find the sum of all the multiples of 3 or 5 below 1000.`
@@ -137,8 +132,7 @@ vector<string> v = some_tok_func(s)
 // v should contain `["Today", "is", "a", "nice", "day!"]`.
 ```
 
-First let's write our test in `tests/test_string_tok.cpp`. 
-The test should be designed such that the first time they are ran they will fail.
+First let's write our test in `tests/test_string_tok.cpp`. The test should be designed such that the first time they are ran they will fail.
 
 ```
 #define BOOST_TEST_MODULE "C++ Unit Tests for StrTok"
@@ -264,11 +258,7 @@ Running 1 test case...
 ```
 
 The new tests pass, however `BOOST_CHECK(tok_string(test_string3) == test_vector);` is not a good test.
-The reason for this is that it is testing too many things. 
-Suppose newlines broke `tok_string`. 
-Our test will not tell us that newline was the cause of the failure. 
-It will tell us that failure was either newline or tabs. 
-This is ambiguous because you don't know the source of the failure.
+The reason for this is that it is testing too many things. Suppose newlines broke `tok_string`. Our test will not tell us that newline was the cause of the failure. It will tell us that failure was either newline or tabs. This is ambiguous because you don't know the source of the failure.
 
 In summary:
 

@@ -1,14 +1,11 @@
 Bash Shell Cheatsheet
 =====================
-
 The main topics of this cheatsheet include an intro to the shell, navigating around the shell, common commands, environment variables, connectors, piping, I/O redirection, permissions, and keyboard shortcuts.
 
 ##Introduction to the Shell
-
 The shell is a program, in our case, called "bash" which stands for Bourne Again Shell. 
 How the shell works is it takes your commands and gives them to the operating system to perform.
 In order to interact with the shell, we use "terminal emulators" such as the [gnome-terminal](https://help.gnome.org/users/gnome-terminal/stable/), [eterm](http://www.eterm.org/), nxterm, etc. 
-
 
 ##Navigating Around The Shell
 On a Linux system, files are organized in a hierarchical directory structure. 
@@ -16,11 +13,9 @@ This means there is a starting directory called the root directory.
 This directory contains files and subdirectories that lead into other subdirectories.
 
 ###pwd
-
 The `pwd` command, short for print working directory, displays your current location in the directory structure.
 
 ###cd
-
 The `cd` command allows you to enter a new directory.
 
 Syntax | Explanation
@@ -33,22 +28,22 @@ cd Directory1 | navigate to directory named Directory1
 cd Directory1/Directory2 | navigate to directory, Directory2, through path
 
 ###mkdir
+The `mkdir` command makes a new directory in your current directory. <br>
 
-The `mkdir` command makes a new directory in your current directory. 
-<br>
 ##Common Commands
 
 ###man
-
 The `man` command directs you to the command manuals. 
-<br> For example, the following command gives us all the information we need about the command `cat`. <br>
+<br> For example, the following command gives us all the information we need about the command `cat`. 
+<br>
 ```
   $ man cat
 ```
-###cat
 
+###cat
 The `cat` command reads a file passed as a parameter and by default print its contents to standard output. 
 <br> Passing multiply files as parameters concatenates the files and then prints to standard output.
+
 ###echo
 The `echo` command prints its arguments to standard output. 
 <br>
@@ -57,8 +52,8 @@ The `echo` command prints its arguments to standard output.
   Hello World
 ```
 If you call `echo` without any parameters, the command prints a new line.
-###head
 
+###head
 The `head` command reads the first 10 lines of any passed in text and prints its contents to standard output.
 You can change the default 10 lines to any number by manually passing in the desired size.
 For example, the following prints all 50 lines of the file. 
@@ -66,24 +61,25 @@ For example, the following prints all 50 lines of the file.
 ```
 $ head -50 test.txt
 ```
-###tail
 
+###tail
 The `tail` command reads the last 10 lines of any passed in text and prints its contents to standard output.
 You can change the default 10 lines to any number by manually passing in the desired size.
-For example, the following prints all 50 lines of the file. <br>
+For example, the following prints all 50 lines of the file. 
+<br>
 ```
   $ tail -50 test.txt
 ```
+
 ###true
-
 The `true` command always returns the exit status zero to indicate success.
+
 ###false
-
 The `false` command always returns the exit status non-zero to indicate failure.
-###grep
 
-The `grep` command is a search function. <br>
-Passing a string and a file searches the file for the given string and prints the occurrences to standard output. 
+###grep
+The `grep` command is a search function. 
+<br> Passing a string and a file searches the file for the given string and prints the occurrences to standard output. 
 ```
   $ cat users.txt
   user:student password:123
@@ -102,10 +98,10 @@ Common flags | Description
   `-n` | prints line found on with phrase
   `-v` | prints invert match
 [See regex tutorial](../../textbook/using-bash/regex)
-###sed
 
+###sed
 The `sed` command is a stream editor that performs text transformations on an input. 
-<br>Common use of this command is to replace expressions which takes the form `s/regexp/replacement/g`
+<br> Common use of this command is to replace expressions which takes the form `s/regexp/replacement/g`
 For example, the following replaces all occurrences of the phrase "Hello" with "Hi".
 ```
   $ cat test.txt
@@ -114,26 +110,26 @@ For example, the following replaces all occurrences of the phrase "Hello" with "
   Hi World
 ```
 [See sed tutorial](../../textbook/using-bash/sed)
-###history
 
+###history
 The `history` command prints out an incremented command line history. 
-<br>It is common to use the `grep` command with the `history` command in order to search for a particular command.
+<br> It is common to use the `grep` command with the `history` command in order to search for a particular command.
 For example, the following searches your history for all occurrences of the string `g++`.
 ```
   $ history | grep g++
   155  g++ file1.txt
   159  g++ file2.txt
 ```
-###export
 
+###export
 The `export` command sets an environment variable to be passed to child processes in the environment. 
-<br>For example, the following exports the variable "name" with the value "student". 
+<br> For example, the following exports the variable "name" with the value "student". 
 <br>
 ```
   $ export name=student
 ```
-###ps
 
+###ps
 The `ps` command, short for process status, prints out information about the processes running. <br>
 ```
   $ ps
@@ -147,12 +143,10 @@ There are four items displayed:
   * name of command that launched the process (CMD)
 
 ###awk
-
 The `awk` command finds and replaces text by searching through files for lines that have a pattern. 
-<br>Syntax: `awk 'pattern {action}' test.txt`
+<br> Syntax: `awk 'pattern {action}' test.txt`
 
 ###wget
-
 The `wget` command downloads files from the web and stores it in the current working directory. 
 <br>
 ```
@@ -160,13 +154,12 @@ The `wget` command downloads files from the web and stores it in the current wor
 ```
 
 ###nc
-
 The `nc` command, short for netcat, is a utility used to debug and investigate the network. 
-<br>[See nc tutorial](../../textbook/using-bash/nc-tutorial)
+<br> [See nc tutorial](../../textbook/using-bash/nc-tutorial)
 
 ###ping
-
-The `ping` command tests a network connection. <br>
+The `ping` command tests a network connection. 
+<br>
 ```
   $ ping google.com
   PING google.com (74.125.224.34) 56(84) bytes of data.
@@ -176,19 +169,18 @@ The `ping` command tests a network connection. <br>
   rtt min/avg/max/mdev = 7.794/8.422/10.792/0.699 ms
 ```
 The statistics at the end show an overview of how many connections went through before we called `^C` and how long it took.
-###git
 
-`Git` is a version control system that is commonly used in the industry and in open source projects. 
-<br>[See git tutorial](../../assignments/lab/lab1-git)
+###git
+`Git` is a version control system that is commonly used in the industry and in open source projects. <br>
+[See git tutorial](../../assignments/lab/lab1-git)
 ##Environment Variables
 Environment variables are named variables that contain values used by one or more applications. 
 <br>The `PATH` variable contains a list of directories where systems look for executable files. 
-<br>The `HOME` variable contains the path to the home directory of the current user.
+<br>The `HOME` variable contains the path to the home directory of the current user. 
 <br>The `PS1` variable is the default prompt to control appearances of the command prompt. 
 <br>
 
 ##Connectors
-
 Connectors allow you to run multiple commands at once.
 
 Connector | Description
@@ -205,8 +197,8 @@ Connector | Description
   Hello
   test.txt file1.txt file2.txt
 ```
-##Piping
 
+##Piping
 Pipes connect multiple commands together by sending the stdout of the first command to the stdin of the next command. 
 For example, the following sends the `ls` output to `head` so that only the top 10 items get printed. <br>
 ```
@@ -215,9 +207,8 @@ For example, the following sends the `ls` output to `head` so that only the top 
 ##Input/Output Redirection
 
 ###Output Redirection
-
 Standard output redirection uses the symbols `>` and `>>`. 
-<br>For example, the following sends the output of `ls` into the file instead of printing to the screen.
+<br> For example, the following sends the output of `ls` into the file instead of printing to the screen.
 ```
   ls > files.txt
   $ cat files.txt
@@ -225,11 +216,11 @@ Standard output redirection uses the symbols `>` and `>>`.
 ```
 If the file isn't already in your working directory, the file gets created.
 If the file already exists, then the contents of the command overwrites what is already in the file. 
-<br>To avoid overwriting a file, the `>>` command appends to the end of the file instead.
-###Input Redirection
+<br> To avoid overwriting a file, the `>>` command appends to the end of the file instead.
 
+###Input Redirection
 Standard input redirection uses the symbol `<`. 
-<br>For example, the following causes `sort` to access its input from the file instead of the keyboard.
+<br> For example, the following causes `sort` to access its input from the file instead of the keyboard.
 ```
   $ cat files.txt
   c
@@ -243,8 +234,8 @@ But we can combine I/O redirection into one command line, such as:
 ```
   $ sort < files.txt > files_sorted.txt
 ```
-###Advanced Redirection
 
+###Advanced Redirection
 Adding a `&` with the `>` symbol results in redirecting both standard out and standard error.
 For example, the `test.cpp` file prints the string "stdout" with `cout` and the string "stderr" with `cerr`.
 ```
@@ -255,7 +246,7 @@ For example, the `test.cpp` file prints the string "stdout" with `cout` and the 
   stderr
 ```
 The `>` symbol alone only redirects standard output. 
-<br>If you only want to redirect a specific file descriptor you can attach the file descriptor number to `>`.
+<br> If you only want to redirect a specific file descriptor you can attach the file descriptor number to `>`.
 
 Name | File Descriptor | Description
 --- | --- | --- 
@@ -270,8 +261,8 @@ For example, if I only wanted to redirect "stderr" to the file `test.txt` from t
   $ cat test.txt
   stderr
 ```
-##Permissions
 
+##Permissions
 The command `ls -l` prints out a lot of information about each file that is informative about the permissions.
 ```
   $ ls -l test.txt
@@ -287,8 +278,8 @@ r-- | Permissions for all other users
 user | name of user
 group | name of group
 ###chmod
-The `chmod` command, short for change mode, changes the permissions of a file. <br>
-There is a combination of letters that need to be known in order to change specific users' permission. 
+The `chmod` command, short for change mode, changes the permissions of a file. 
+<br> There is a combination of letters that need to be known in order to change specific users' permission. 
 
 Letter | User
 --- | ---

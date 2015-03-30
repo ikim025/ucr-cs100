@@ -68,7 +68,6 @@ just a reminder: it seems that SVN doesn't have that function.
 
 
 ####Stashing Queue
-
 You can stash many status.(Always fixing the bugs)
 
 With this command you can check the stash list:

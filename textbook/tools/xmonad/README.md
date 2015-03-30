@@ -18,8 +18,7 @@ For a beginner, we recommend using the second method, and that is the one we wil
 
 ##Preparation
 
-After the installation has finished, **log out** the current session. 
-**Do not shutdown**. 
+After the installation has finished, **log out** the current session. **Do not shutdown**. 
 You can if you want to, but then you would have to power on again.
 
 Now, you have to login to your user account in the xmonad session. 
@@ -33,13 +32,12 @@ If you have a different login manager, or you do not see a dropdown to select yo
 ##Usage
 
 ###Opening a terminal window
-
 When you login, you will see a blank screen.
 
 ![](images/blanks.png)
 
 Now, the command to run the terminal is **MOD-SHIFT-N**. 
-MOD is by default the alt key, but we can change it. 
+MOD is by default the alt key, but it can be changed. 
 So, basically, you will press alt, shift and n at the same time to run the terminal.
 
 *On pressing MOD-SHIFT-N*
@@ -63,13 +61,11 @@ This is the beauty of XMonad.
 As you can see, you can open as many things as you want and there would be no overlaps or blank spaces.
 
 ###Changing the focused window.
-
 To cycle through other windows clockwise press **MOD-TAB** or **MOD-J**.
 To cycle anticlockwise press **MOD-K**
  
 
 ###Closing the terminal
-
 To close a focused window press **MOD-SHIFT-C**
 
 After *MOD-SHIFT-C*, the screen will look like
@@ -100,8 +96,7 @@ There is also a single window mode, in which a single window occupies the screen
 
 ![](images/term2ws.png)
 
-Apart from these three, there are many additional tiling algorithms that do not come packaged with xmonad. 
-For instructions on how to install those follow this [link](http://xmonad.org/contrib.html)
+Apart from these three, there are many additional tiling algorithms that do not come packaged with xmonad. For instructions on how to install those follow this [link](http://xmonad.org/contrib.html)
 
 ###Switch Workspace
 
@@ -120,7 +115,7 @@ To move the focused window to different workspace simply enter **MOD-SHIFT-NUM**
 ###Installing Dmenu
 
 So far, we are covering the basics of xmonad. 
-Now we will install another useful tool called dmenu. 
+Now we will install another useful tool called dmenu.
 Dmenu is an app launcher, that lets you type in the name of the app you want to run. 
 This comes in real handy as you do not have to run the terminal to run Firefox.
 
@@ -129,7 +124,8 @@ For user with debian-based distros, run `sudo apt-get install dmenu` in the term
 For other distro users, follow the instructions [here](http://software.opensuse.org/download.html?project=utilities%3Asuckless&package=dmenu)
 
 Xmonad has a default key binding to launch dmenu. 
-The combo is **MOD-P**. On pressing MOD-P, you will notice that a toolbar will appear on the top of the screen. Here you can type the name of any application and press *ENTER* to launch it. 
+The combo is **MOD-P**. On pressing MOD-P, you will notice that a toolbar will appear on the top of the screen.
+Here you can type the name of any application and press *ENTER* to launch it. 
 Even partial names work, as long as there is no ambiguity. 
 For e.g. to run Firefox, you can just type fir and that will do the job.
 
@@ -149,8 +145,7 @@ On pressing *MOD-SHIFT-SLASH*
 
 ###Accessing system settings
 
-When you are in the xmonad session, there will be no menu bar and the right clicks with the mouse will not open anything. 
-So everything must be done from the terminal. 
+When you are in the xmonad session, there will be no menu bar and the right clicks with the mouse will not open anything. So everything must be done from the terminal. 
 To connect to the internet, you will need to run `nm-connections-editor` in the terminal.
 
 To open the control center, run `gnome-control-center`.
@@ -162,9 +157,7 @@ Xmonad is very flexible in personalizations.
 You can add many things including new keyboard shortcuts, add-ons etc.
 
 To configure you have to edit the `~/.xmonad/xmonad.hs` file. 
-The configuration is not as easy as it has to be written in haskell. 
-However, you can find many configurations online. 
-A personal favorite of ours is [this](https://www.haskell.org/haskellwiki/Xmonad/Config_archive/John_Goerzen's_Configuration). 
+The configuration is not as easy as it has to be written in haskell. However, you can find many configurations online. A personal favorite of mine is [this](https://www.haskell.org/haskellwiki/Xmonad/Config_archive/John_Goerzen's_Configuration). 
 This one will also teach you how to add your own keyboard bindings.
 
 Report typos and/or broken links at ihund001@ucr.edu

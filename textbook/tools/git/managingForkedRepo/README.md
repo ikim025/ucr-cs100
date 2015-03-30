@@ -53,8 +53,7 @@ So we'll use `git rebase` to sync our local forked repository with our *upstream
     $ git rebase upstream/MASTER_BRANCH
   ```
 
-7. At this point, our local repository should be completely synced up. 
-Now we just have to push these changes to our forked repository on github.
+7. At this point, our local repository should be completely synced up. Now we just have to push these changes to our forked repository on github.
 
   ```
     $ git push
@@ -62,7 +61,7 @@ Now we just have to push these changes to our forked repository on github.
 
 ##Merging multiple commits into one
 
-Say that you were making changes to a README.md file in your forked repository, and you made a lot of commits. 
+Say that you were making changes to a README.md file in your forked repository, and you made a lot of commits.
 Now you have a bunch of commits for that same file on your forked repository. 
 If you were to submit a pull request right now, it would be really annoying and tedious for the original owner of the `README.md` file to look at each commit individually when they've all made changes to the same file.
 That's where merging commits comes in!
@@ -80,8 +79,7 @@ Go to your forked repository in your terminal and enter:
   $ git rebase -i HEAD~X
 ```
 
-  where `X` is the number of latest commits that you want to merge. 
-In our example, `X` would equal 3.
+  where `X` is the number of latest commits that you want to merge. In our example, `X` would equal 3.
 
 ```
   $ git rebase -i HEAD~3
@@ -113,7 +111,7 @@ The `pick` command means that the commit is included.
 Rearranging the order of the `pick` command will change the order of the commits when the rebase is underway.
 
 The `squash` command is what lets you combine two or more commits into a single commit. 
-A commit is "squashed" into the commits above it.us to "squash" all of the commits we want into one commit.
+A commit is "squashed" into the commits above because, we are trying to "squash" all of the commits we want into one commit.
 
 Looking back at our example, we can merge all of our commits into one like so: 
 
@@ -124,8 +122,7 @@ squash ebfd367 Fixed grammar errors
 ```
 This tells Git to combine commit `6340aaa` and `ebfd367` into the first commit, `01d1124`.
 
-Once you've made those changes, save and quit. 
-Another editor will open.
+Once you've made those changes, save and quit. Another editor will open.
 ```
 #This is a combination of 3 commits.
 # The first commit's message is:
@@ -149,8 +146,9 @@ Fixed grammar errors
 #
 ```
 At this point, Git allows you to modify the new commit's message based on the rest of the commits involved in the process. 
-Anything that is not commented out will be the new commit message, so you can change it to one concise commit message. Once you're done, you can save and quit the editor. 
-If all work correctly, your terminal should display something similar this:
+Anything that is not commented out will be the new commit message, so you can change it to one concise commit message. 
+Once you're done, you can save and quit the editor. 
+If all worked correctly, your terminal should display something similar this:
 ```
 Created commit ofc4eea: Updated title, added new section, and fixed grammar errors in README.md.
  4 files changed, 48 insertions(+), 12 deletions(-)
@@ -175,8 +173,7 @@ To get your merged commit onto your github, you need to force push this change o
   $ git push -f
 ```
 
-The `-f` flag stands for force. 
-It's the same as a normal `git push` except the push is forced even if it results in a non-fast-forward merge.
+The `-f` flag stands for force. It's the same as a normal `git push` except the push is forced even if it results in a non-fast-forward merge.
 
 ##Resetting your forked repository when things go **BAD**
 Say you've made a commit to your forked repository that had A LOT of changes from the previous commit. 
@@ -205,6 +202,6 @@ If you want to revert your whole repository to an older commit, here are the ste
 ```
 
 **NOTE**: `git reset --hard` is a very powerful command and cannot be undone. 
-If you would like to keep the changes you've made just in case, you should branch off a copy of your changes before resetting. 
-If you would like to learn more about `git reset`, there's a great article that explains it [here](http://git-scm.com/blog/2011/07/11/reset.html).
+If you'd like to keep the changes you've made just in case, you should branch off a copy of your changes before resetting. 
+If you'd like to learn more about `git reset`, there's a great article that explains it [here](http://git-scm.com/blog/2011/07/11/reset.html).
 

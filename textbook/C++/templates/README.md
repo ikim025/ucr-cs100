@@ -41,7 +41,8 @@ When you run the program, you will get exactly what you wanted:
 6
 6.34
 ```
-We have just successfully used a template! It wasn't that hard was it?
+We have just successfully used a template! 
+It wasn't that hard was it?
 
 Before, we would have needed to write two functions (with the same code in it!), but for different data types.
 
@@ -60,7 +61,8 @@ Templates can be used for simple functions (like the one we just made) to classe
 
 You may have been using templates without even noticing it! 
 The Standard Template Library provides many containers. 
-For example, **vectors** can be used to store any type of data type. This is because they use templates!
+For example, **vectors** can be used to store any type of data type. 
+This is because they use templates!
 
 Let's take a look at vectors:
 ```
@@ -68,12 +70,13 @@ template < class T, class Alloc = allocator<T> > class vector;
 ```
 First off, you may have noticed something different about this template. 
 Here, `class` is used instead of `typename`. 
-There is no difference. Usually people use `class` because it is shorter and others use `typename` because it sounds more generic.
+There is no difference. 
+Usually people use `class` because it is shorter and others use `typename` because it sounds more generic.
 
 If you're familiar with vectors, then the first parameter should be understandable. 
 `class T` is the type of data you are storing in the vector (such as `int` or `string`).
 
-If you wanted a vector of doubles, then you would declare it like so:
+If you want a vector of doubles, then you would declare it like so:
 ```
 vector<double> numList;
 ```
@@ -83,16 +86,18 @@ class Alloc = allocator<T>
 ```
 The second parameter is an allocator class that defines how memory will be allocated if the vector needs more memory. 
 
-An allocator is a class with member functions **allocate** and **deallocate**. It also has helper functions for manipulating the memory that it allocated and typedefs that describe how to refer to the memory (names for pointer and reference types). 
+An allocator is a class with member functions **allocate** and **deallocate**. 
+It also has helper functions for manipulating the memory that it allocated and typedefs that describe how to refer to the memory (names for pointer and reference types). 
 If an STL container allocates all of its memory through a user-provided allocator (which the predefined STL containers all do), you can control its memory management by providing your own allocator.
 
 For example when using `push_back`, eventually the vector would need more space. 
-This is where the allocator works to make space for the new values. The allocators are used to handle memory allocation and deallocation. 
+This is where the allocator works to make space for the new values. 
+The allocators are used to handle memory allocation and deallocation. 
 Depending on the kind you use, you can see greatly improved performance. 
-In most cases, you wouldn't need to worry about it because it is set by the default allocator class template. 
-This is because it is a part of a **default template argument**.
+In most cases, you wouldn't need to worry about it because it is set by the default allocator class template. This is because it is a part of a **default template argument**.
 
-Default template arguments are specified in the parameter lists after the `=` sign. Defaults can be specified for any kind of template parameter (type, non-type, or template), but not to parameter packs.
+Default template arguments are specified in the parameter lists after the `=` sign. 
+Defaults can be specified for any kind of template parameter (type, non-type, or template), but not to parameter packs.
 
 If the default is specified for a template parameter of a primary class template, each subsequent template parameter must have a default argument, except the very last one may be a template parameter pack. 
 In a function template, a parameter pack may be followed by more type parameters only if they have defaults or can be deduced from the function arguments.
@@ -134,7 +139,7 @@ int main()
     bool yes=isSame(a, b);
 }
 ```
-You’ll get a whole host of nasty compilation errors.
+You’ll get a whole host of nasty compilation errors. 
 Near the top of the error list it will say something like this:
 ```
 tests.cpp:11:14: error: no match for ‘operator==’ (operand types are ‘myStack<int>’ and ‘myStack<int>’)         return (data1==data2);
@@ -169,13 +174,13 @@ But one of the things you have to watch out for is if there are missing construc
 
 ###Class Templates
 
-So far we’ve gone over how to use templates in normal functions, but what about when we want to define an abstract container that is adaptable? In one example above, we briefly cover class templates with multiple parameters.
+So far we’ve gone over how to use templates in normal functions, but what about when we want to define an abstract container that is adaptable? 
+In one example above, we briefly cover class templates with multiple parameters.
 
-Usually classes are used to represent data as abstract objects and have functions that can manipulate that data. 
+Usually classes are used to represent data as abstract objects and have functions that can manipulate that data.
 Class templates come in handy when you need similar functions for another kind of data type.
 
 To turn a class into a template, we simply replace all occurrences of `int` with the template name and add the template parameter at the top just like you would for a function.
-
 ```
 template <class type>
 class Object
@@ -208,7 +213,6 @@ These attributes are very useful for creating abstract data structures with spec
 
 ##Multiple Types with Class Templates
 You can declare templates with as many types as you would like.
-
 ```
 template<class Type1, class Type2>
 struct Pair
@@ -258,7 +262,7 @@ These two types are paired together in the Pair class template.
 
 As we can see, templates tend to make certain implementations easier to write and understand because there is less clutter to look at.
 
-##Ok, so why should I use them?
+##Ok, so why should we use them?
 
 
 As mentioned above, class templates can be used for creating objects with unique behavior that are adaptable.
@@ -279,8 +283,7 @@ public:
 };
 
 ```
-A stack is an abstract container that only manipulates the last value whether it is adding or removing values. 
-Without templates, the stack class wouldn’t be able to apply this behavior to different types.
+A stack is an abstract container that only manipulates the last value whether it is adding or removing values. Without templates, the stack class wouldn’t be able to apply this behavior to different types.
 As you can see, using templates is crucial when implementing containers because normal functions would not be able to handle multiple types.
 
 Templates are easier to write and understand because you are implementing the code once for various types instead of writing almost identical code multiple times.
@@ -296,7 +299,8 @@ Unlike templates that run at compile time, macros are a more primitive type and 
 Since templates run at compile time, they take more time to build but are safer (more on this later).
 
 There are two types of macros: “Object-like” macros that take no arguments, and “function-like” macros that can be defined to accept arguments. 
-To specify an Object-like macro, you would write #define followed by an identifier name and a string or numeric. When the preprocessor sees this it will substitute each occurrence of that macro in source code.
+To specify an Object-like macro, you would write #define followed by an identifier name and a string or numeric. 
+When the preprocessor sees this it will substitute each occurrence of that macro in source code.
 
 Here is a basic example program using macros:
 
@@ -357,7 +361,8 @@ Important: Do not leave any space between the name and the parentheses.
 
 The function definition is then embedded within another set of parentheses.
 
-The drawback of using macro functions is that it does not perform any type checking. In C++, an inline function is a safer and often preferred method.
+The drawback of using macro functions is that it does not perform any type checking. 
+In C++, an inline function is a safer and often preferred method.
 
 Here is how you would call the min as an inline function:
 ```
@@ -390,15 +395,11 @@ They literally do the same thing!
 They are strings that the compiler replaces with the defined value.
 
 Well, first of all, macros literally just copy and paste the text into your code.
-One problem that arises when that happens is that if you want to post-increment a variable in the parameters, then the value is incremented however many times the variable is present in the macro. 
+One problem that arises when that happens is that if you want to post-increment a variablein the parameters, then the value is incremented however many times the variable is present in the macro. 
 With templates, that problem is not apparent.
 
 For example:
 ```
-#include <iostream>
-
-using namespace std;
-
 #define max1(a, b) (((a)>(b)) ? (a):(b))
 int main()
 {
@@ -418,9 +419,6 @@ Because `x++` is in the function twice, it would be incremented twice, leading t
 
 With templates:
 ```
-#include <iostream>
-
-using namespace std;
 template <typename TYPE>
 TYPE max1(TYPE a, TYPE b){
     return (((a)>(b))?(a):(b));
@@ -445,15 +443,13 @@ With the macro, the **y** value would be 6 because **x++** replaces **a** once b
 
 First off, there is no way for macros to check parameter types. 
 That could already be the source of a number of bugs in your program. 
-As we are pointing out above, templates don't have this problem.
+As we are pointing out above, templates do not have this problem.
 
 For macros, during debugging, the messages will refer to the expanded macro instead of the definition. 
 Since macros are expanded in the preprocessor, the compiler tends to not see them.
 
-Let’s say that a macro is defined on line 14 but is called upon in line 400. 
-When using a debugger the problem will be shown on line 400 in expanded form.
-**This can make the debugging process much harder because the function cannot be seen in the debugging process**
-Templates, however, will point to the exact location of the problem!
+Let’s say that a macro is defined on line 14 but is called upon in line 400. When using a debugger the problem will be shown on line 400 in expanded form.
+**This can make the debugging process much harder because the function cannot be seen in the debugging process** Templates, however, will point to the exact location of the problem!
 
 The last thing about macros is that they cannot be stepped into with a debugger like gdb. 
 Since they are based on text substitution, there isn't a way for them to be stepped into because they are not quite functions.
@@ -461,13 +457,13 @@ Since they are based on text substitution, there isn't a way for them to be step
 
 
 ##Conclusion
-
 By now, we hope that you have a good enough understanding of templates to use it on your own. 
 Even though you may end up never using it, it is important to understand the structure of templates as you may see them in other programs.
 
 Just like programming, take templates one step at a time. 
 Try not to dive in too deep and make a complicated program with templates. 
 Doing so while you're still inexperienced may lead to seeing those hard to understand compiler errors. 
-Even with simple templates, you may still run into compiler errors. However, fixing those errors will allow you to be more comfortable with templates.
+Even with simple templates, you may still run into compiler errors. 
+However, fixing those errors will allow you to be more comfortable with templates.
 
 

@@ -41,8 +41,8 @@ The most useful so far in this class are: <br>
 
 This allows us to pass command line arguments into our program which runs through gdb. 
 This is like program-caption. 
-This argument can only be used once, and anything after the program will be considered an argument, even successive flags
-. Anything before it will act normally. 
+This argument can only be used once, and anything after the program will be considered an argument, even successive flags. 
+Anything before it will act normally. 
 
 ```
   $ gdb -quiet <program> 
@@ -84,7 +84,8 @@ where any errors or outputs occur.
 ```
 
 `info breakpoint` will print out the number of breakpoints, the type, the location, and any conditions associated with the breakpoint. 
-It will also tell you however many times you've hit the breakpoint. It will also print out any watchpoints.
+It will also tell you however many times you've hit the breakpoint. 
+It will also print out any watchpoints.
 
 ```
   (gdb) clear
@@ -96,8 +97,7 @@ It will also tell you however many times you've hit the breakpoint. It will also
   (gdb) delete <breakpoint> <break numbers>
 ```
 
-`delete` will delete any specified breakpoints. 
-If no arguments are specified, it will just delete all breakpoints.
+`delete` will delete any specified breakpoints. If no arguments are specified, it will just delete all breakpoints.
 
 ```
   (gdb) disable <break numbers> 
@@ -128,8 +128,7 @@ Enabling enabled breakpoints will do nothing.
 
 `run` runs the program until it ends, accepts input, or until it reaches a breakpoint. 
 Any runs before the program finishes prompts a restart, which keeps all breakpoints or any other commands. 
-Any runs after the program finishes 
-will still keep its breakpoints or commands as well.
+Any runs after the program finishes will still keep its breakpoints or commands as well.
 
 ###Using GDB
 

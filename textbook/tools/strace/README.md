@@ -1,11 +1,9 @@
 #strace Tutorial
 
 ###What is strace?
-
 `strace` is a debugging tool that lists and orgranizes the system calls an executable uses.
 
 ###Using strace
-
 Let's first run `strace` on [example1.cpp](example1.cpp) without any flags to see what the output will typically look like.
 All of our example code in this tutorial are included here in this directory.
 

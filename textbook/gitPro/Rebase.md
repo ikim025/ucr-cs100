@@ -4,7 +4,6 @@ The `rebase` is one of  the most common ways to **integrate from one branch into
 This part will focus on `rebase` and you will learn how to use it, why it is a pretty amazing tool and what kinds of cases you won't want to use it in.
 
 ##How to Rebase
-
 Assuming that we create a branch `cs100` on your remote branch `master`:
 ```
 $ git init
@@ -25,9 +24,9 @@ The history will be like:
 
 ![commit 1](https://github.com/jinhangwang/git-patch-and-rebase/blob/master/image/commit1.png)
 
-If you want to keep all of your commits **only** on the `cs100` branch, then you can use git rebase
-(Using `merge` will create a merge commit and integrate all commits on the `master` branch.
-I will compare them later):
+If you want to keep all of your commits **only** on the `cs100` branch, then you can use git rebase (Using `merge` will create a merge commit and integrate all commits on the `master` branch.
+we will compare them later):
+
 ```
 $ git checkout cs100
 $ git rebase master
@@ -53,7 +52,6 @@ If the rebase process finds a conflict, for example, your colleague's also devel
 However, if we want to go back to the status before the rebase, run `$ git rebase --abort`.
 
 ##Merge vs Rebase
-
 Previously, we have learned how to `merge` and integrate branches in `lab1-git`.
 How `merge` works to integrate is by pushing a new `merge commit` and then combine branches with all commits before `merge`. 
 Here is an example:
@@ -70,7 +68,6 @@ Compared with `rebase`, `merge` would be a little bit messy for the `merge commi
 Therefore, `rebase` will present a better history, not only for the contributors, but also for the future readers.
 
 ##Inerteractive Rebasing
-
 Under this mode, you can rewrite your commits before the pull request.
 This is really important for a beginner in Github because, if you mess up the history in the repo forked from Mike, you will have to delete your repo and fork again which can cause a lot problems that can get a F in this course.
 
@@ -190,7 +187,8 @@ reword db42315 added yliu127 info
 exec echo the interactive rebase success
 ```
 
-Interactive rebase will then skip the next two `pick` commands and then process the `fixup` command which automatically merges `2dcfbe6` into `57ecb22`. Both changes contain the same message `"Corrected spelling errors in Lab0"`.
+Interactive rebase will then skip the next two `pick` commands and then process the `fixup` command which automatically merges `2dcfbe6` into `57ecb22`. 
+Both changes contain the same message `"Corrected spelling errors in Lab0"`.
 
 Then it goes to `edit bffd586`, and it stops to display information on terminal:
 ```
@@ -288,12 +286,11 @@ $ git push https://github.com/Laviness/ucr-cs100.git --force
 ```
 
 since you have changed the existing history on the server.
-But I only recommend you to do it **locally** with commits that don't exist on the server using `git push origin` because changing the existing history on the server can cause serious problems.
+But we only recommend you to do it **locally** with commits that don't exist on the server using `git push origin` because changing the existing history on the server can cause serious problems.
 
 ##The drawbacks of Rebasing
-
 Rebasing is great, but it depends on how you use it.
-It's not perfect and will easily induce a lot of problems with a few steps.
+It is not perfect and will easily induce a lot of problems with a few steps.
 Now we will teach you how to **destory** a repository like an expert. 
 
 **rebase commits that exist outside one's repository.**

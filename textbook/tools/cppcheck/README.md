@@ -7,10 +7,8 @@ As a fair warning to readers, this tutorial was written with Linux users in mind
 Quick Info
 ==========
 
-<a href="http://cppcheck.sourceforge.net/" target="_blank">Cppcheck</a> is a static code analysis tool for the C/C++ programming languages. 
-It is a versatile tool that can check non-standard code. 
-The creator and lead developer is Daniel Marjamäki. 
-Unlike C/C++ compilers and many other analysis tools it does not detect syntax errors in the code. 
+<a href="http://cppcheck.sourceforge.net/" target="_blank">Cppcheck</a> is a static code analysis tool for the C/C++ programming languages. It is a versatile tool that can check non-standard code. 
+The creator and lead developer is Daniel Marjamäki. Unlike C/C++ compilers and many other analysis tools it does not detect syntax errors in the code. 
 Cppcheck primarily detects the types of bugs that the compilers normally do not detect. 
 The goal is to detect only real errors in the code. 
 
@@ -145,18 +143,18 @@ Checking usage of global functions..
 $
 ```
 ####Why?
-Because you wrote a function when it wasn't even needed. Sheesh what a waste of time.
+Because you are writing a function when it is not even needed.
+Sheesh what a waste of time.
 Ok, fine here's what this code is and does. 
-We added the main function and we still get the same as errors for not using variables i, but now we also get errors for an unused function `greaterThanZero`.
+We are adding the main function and we still get the same as errors for not using variables i, but now we also get errors for an unused function `greaterThanZero`.
 _l2Code_
-To fix the problems listed above in the cppcheck report would be to remove the unused function and to remove the variables that were not used.
+To fix the problems we have above in the cppcheck report would be to remove the unused function and to remove the variables that were not used.
 What we will be left with will be the `main()` function and the `foo(int x, int y)` function.
 By removing the `greaterThanZero(int x)` function, we fix the errors stating how `Variable 'i' is assigned a value that is never used` and `The function 'greaterThanZero' is never used`.
 
 
 <a name="memoryhole"></a>
 ##Memory Leaks
-
 ```
 int main()
 {
@@ -172,13 +170,10 @@ Checking memleak.cpp...
 [memleak.cpp:11]: (error) Memory leak: a
 $
 ```
-
 ####Sheesh a leak in this code... why??
-
 Since the code allocated memory of 10 for a, there should have been followup code at the end calling `delete []a;`.
 However since this was not done, a memory leak occurs where dynamically allocated memory was never freed.
 Ideally the code should look like the following:
-
 ```
 int main()
 {
@@ -211,7 +206,6 @@ Checking leaky.cpp...
 $
 ```
 ####Why is there memory vegetable?!?
-
 Aside from using bad coding practices like using `malloc` instead of `a = new float[somenumber]`, this code is similar to the one prior to this.
 By not using the `free` call to free the allocated memory, the leak will occur when the pointer called "a" goes out of scope.
 Ideally the code should looks something like this:
@@ -238,7 +232,6 @@ With beginner programmers, these kind of mistakes happen often.
 The following code is a great example of a mistake that beginner programmers might make.
 ##Unused function return value
 ```
-
 int TestReturn(int &x, int &y)
 {
     x = 10;
@@ -276,12 +269,10 @@ Using another static debugger would be useful here.
 
 <a name="overflowing"></a>
 ##Overflow
-This example is to show the result of overflow. A majority of the students
-have probably made the mistake of subtracting a number from 0 in an unsigned integer variable.
+This example is to show the result of overflow. 
+A majority of the students have probably made the mistake of subtracting a number from 0 in an unsigned integer variable.
 The following code shows what happens when you overlook the potential of overflowing.
 ```
-#include<iostream>
-using namespace std;
 int main()
 {
 	int i = 2147483647;
@@ -299,7 +290,7 @@ $ cppcheck overflow.cpp
 Checking overflow.cpp...
 $
 ```
-####Seems normal to me!
+####Seems normal to us!
 One other bug that cppcheck does not check for is overflow.
 If we run this code, it would only print out "Hello World!" once.
 Why does this happen?
@@ -333,7 +324,6 @@ Checking TrickyArray.cpp...
 $
 ```
 ####But didn't you say it checked array bounds?
-
 Yes, it does check array bounds, but not if its index is passed in through an argument. 
 Currently, cppcheck does not check functions with respect of the parameter.
 Cppcheck checks the body of the code but does not evaluate the whole function with the argument included. 
@@ -391,8 +381,8 @@ What this means is with general usage, cppcheck will not check much but what it 
 Similar to a crafting NPC in a game, cppcheck will tell you only what it can tell you for sure.
 Given the right ingredients, or in cppcheck's case, configurations and flags, it will give you errors that are almost guaranteed to be errors.
 
-cppcheck works in a way where it trues to avoid false positives so many of the bugs listed will be actual bugs.
-this being said, there will be many things that cppcheck will not catch such as [stylistic errors](#styleuse), syntax, and [runtime](#overflowing) bugs.
+cppcheck works in a way where it trues to avoid false positives so many of the bugs listed will be actual bugs. 
+This being said, there will be many things that cppcheck will not catch such as [stylistic errors](#styleuse), syntax, and [runtime](#overflowing) bugs.
 
 *tl;dr: cppcheck is good at what it does, but use a variety of tools to fully debug your programs.*              
 

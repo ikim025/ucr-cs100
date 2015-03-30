@@ -1,7 +1,7 @@
 #The Boost Library Tokenizer
 
 A tokenizer extracts meaningful substrings from a string.
-We call these substrings tokens.
+These substrings are called tokens.
 Tokenizing makes life easier when you want to break up a string.
 For example, you can tokenize the string `Get thee to a nunnery`, which will be broken up into the tokens: `Get`, `thee`, `to`, `a`, and `nunnery`.
 
@@ -9,7 +9,7 @@ For example, you can tokenize the string `Get thee to a nunnery`, which will be 
 
 Let's look at the code from [ex1.cpp](https://github.com/vgarc018/cs100hw4/blob/master/src/ex_1.cpp).
 
-The first thing we will have to do is to include the boost tokenizer library and use the boost namespace.
+The first thing we'll have to do is include the boost tokenizer library and use the boost namespace.
 
 ```
 #include <iostream>
@@ -46,13 +46,13 @@ much
 34
 ```
 
-However, the way this tokenizer is parsing is not particularly useful.
+However, the way this tokenizer is parsing isn't particularly useful.
 But we can control how the boost tokenizer parses by defining something which is known as a delimiter.
 
 A ***delimiter*** is a sequence of one or more characters that separate tokens, and a tokenizer looks at what delimiters are passed in so that it can know where to separate the tokens.
 So for this example, we can say that the default delimiters are white space and all non-letter/number characters.
 
-To explain further on how the strings gets parsed, we need to understand that `tokenizer` parses by characters.
+To explain in detail how this string got parsed, it should be noted that `tokenizer<>` parses by characters.
 So this tokenizer will go through each character in the string and it will check to see if it is in the delimiter set.
 Once it finds a match, the tokenizer will know that everything up until that character is a token so `Don` becomes a token since it finds `'`, which is a non-letter/number character.
 It will then move on to creating the next token and once it finds the space after `t`, it creates the token `t`.
@@ -68,7 +68,7 @@ char_separator<char> delim("&");
 tokenizer< char_separator<char> > mytok(str, delim);
 ```
 
-The `char_separator<char>` is one of the models of the boost tokenizer library and declaring tokenizer with `char_separator<char>` lets boost know that we are going to use our own delimiters.
+The `char_separator<char>` is one of the models of the boost tokenizer library and declaring tokenizer with `char_separator<char>` lets boost know that we're going to use our own delimiters.
 Notice how the tokenizer function now has an extra parameter, `delim`, which will be our delimiter set.
 
 In this particular example, our delimiter set contains only `&`, so therefore our tokens will be separated only by this character.
@@ -86,11 +86,11 @@ token: as
 token: butter
 ```
 
-Note: Although there are multiple of `&`'s, none of them are getting printed.
-But now this does not look like something useful since whitespace isn't part of the delimiter set anymore.
+Notice how even though there were multiple `&`'s, all of them were not outputted.
+But now this doesn't look like something useful since white space isn't part of the delimiter set anymore.
 
-**Note:** There are other separators that can be used, but for this particular tutorial we are going to work with `char_separator<char>`.
-But check [the other separators](http://www.boost.org/doc/libs/1_57_0/libs/tokenizer/index.html) if you want to see what else you can do with boost tokenizer.
+**Note:** There are other separators that can be used, but for this particular tutorial we're going to work with `char_separator<char>`.
+But check [the other separators](http://www.boost.org/doc/libs/1_57_0/libs/tokenizer/index.html) out if you want to see what else you can do with boost tokenizer.
 
 ###Multiple characters in our delimiter
 
@@ -114,17 +114,17 @@ token: butter
 ```
 
 Now this looks better, but keep in mind that this delimiter set does not contain *all* white space.
-Try looking up [ASCII character codes](http://www.petefreitag.com/cheatsheets/ascii-codes/) for other types of whitespace and other miscellaneous characters that you might need.
+Try looking up [ASCII character codes](http://www.petefreitag.com/cheatsheets/ascii-codes/) for other types of white space (and other miscellaneous characters that you might need).
 
 ###Repeated characters in our delimiter
 
-What if our delimiter set contains repetitive characters?
-We have been explaining on how a tokenizer will match the text with the delimiters to know where to separate tokens, and because this boost tokenizer deals with only characters, the tokenizer will look in the set and match a character to a character.
-So if a character shows up one time in the set, then the tokenizer will know that this marks the separation of tokens.
-Any other subsequent appearances of this character will not mean anything since the tokenizer would have already parsed the tokens after seeing the first one.
+What if our delimiter set contains reapeated characters?
+We explained earlier how a tokenizer will match the text with the delimiters to know where to separate tokens, and because this boost tokenizer deals with only characters, the tokenizer will look in the set and match a character to a character.
+So if a character showed up one time in the set, then the tokenizer will know that this marks the separation of tokens.
+Any other subsequent appearances of this character won't mean anything since the tokenizer would have already parsed the token after seeing the first one.
 This is why we keep referring to the `char_separator<char>` as the delimiter set, since it acts like a set.
 
-So looking at [ex_3.cpp](https://github.com/vgarc018/cs100hw4/blob/master/src/ex_3.cpp), we have a string and our delimiter set as:
+So looking at [ex_3.cpp](https://github.com/vgarc018/cs100hw4/blob/master/src/ex_3.cpp), we have the string and our delimiter set as:
 
 ```
 string str = "ls dir || cat file | tr a-z A-Z";
@@ -132,8 +132,8 @@ char_separator<char> delim(" ||");
 tokenizer< char_separator<char> > mytok(str, delim);
 ```
 
-If you didn't want to include the pipe `|` in your delimiter, having it contain `||` will *not* be recognizable as something distinct to look for in parsing.
-We will output our tokens this time with spaces in between.
+If you didn't want to include the pipe `|` in your delimiter, having it contain `||` will *not* be recognized as something distinct to look for in parsing.
+We'll output our tokens this time with spaces in between.
 So let's compile and run the program to see what we will get:
 
 ```
@@ -143,9 +143,9 @@ ls dir cat file tr a-z A-Z
 
 ###Default delimiters
 
-What happens though if we do not put anything into our delimiter set?
-The default delimiters for `char_separator<char>` model will contain only a whitespace.
-Also, each non-letter/number characters are treated as a token.
+What happens though if we didn't put anything into our delimiter set?
+The default delimiters for `char_separator<char>` model will contain only white space.
+Also, the non-letter/number characters are each treated as a token.
 Notice that this is different from `tokenizer<>`.
 
 
@@ -157,7 +157,7 @@ char_separator<char> delim;
 tokenizer< char_separator<char> > mytok(str, delim);
 ```
 
-where delimiter set `delim` is empty.
+where we didn't put anything into our set.
 Similarly, we could also opt to not pass in `delim` into our function like this,
 
 ```
@@ -191,7 +191,7 @@ Here are the basics of making a tokenizer with your own delimiters so far:
 But it might be useful to know that `char_separator<char>` has options for outputting delimiters and empty tokens.
 This is where boost tokenizer really differentiates from the `strtok` function since it can do neither of these.
 
-**Note:** If you are unfamiliar with `strtok`, check out this [tutorial](https://github.com/mikeizbicki/ucr-cs100/tree/2015winter/textbook/assignment-help/strtok).
+**Note:** If you're unfamiliar with `strtok`, check out this [tutorial](https://github.com/mikeizbicki/ucr-cs100/tree/2015winter/textbook/assignment-help/strtok).
 
 ###Kept delimiters
 
@@ -231,11 +231,11 @@ But what if there are multiple delimiters right next to each other?
 
 Say we have this string `c&&ar` where our delimiter is `&`.
 When the tokenizer reaches the first `&`, it will know that `c` is a token.
-Then it will start working on the next token, but it will find another `&` right after and it will think, that is the end of the token.
-But there isn't anything that is actually put into this token and thus we have an **empty token**.
+Then it will start working on the next token, but it will find another `&` right after and it will think, that's the end of the token.
+But there was nothing that was actually put into this token and thus we have an **empty token**.
 
 Tokenizers such as `strtok` will not output these empty tokens but maybe it might be useful to know where these empty tokens are, so the boost tokenizer gives us this option.
-In order to do this, we must pass `keep_empty_tokens` in as the third parameter for `char_separator<char>.`
+In order to do this, `keep_empty_tokens` must be passed in as the third paramter for `char_separator<char>.`
 Let's use the previous example, ex_5.cpp, and change our delimiter to:
 
 `char_separator<char> delim("^| ", ";", keep_empty_tokens);`
@@ -246,7 +246,7 @@ Compiling and running with this change will give us:
 Original string: I;m test^ing this || out;
 (I) (;) (m) (test) (ing) (this) () () () (out) (;) ()
 ```
-where the parentheses with nothing in between are our empty tokens.
+where the parentheses with nothing in between them are our empty tokens.
 
 ##Bringing it all together
 
@@ -276,8 +276,7 @@ explicit char_separator(const char* dropped_delims,
                         empty_token_policy empty_tokens = drop_empty_tokens)
 ```
 
-We should always pass in the `dropped_delim` parameter; if we do not, boost tokenizer will still parse the string.
-Otherwise `kept_delims` and `empty_tokens` are already set to defaults and are optional traits.
+The `dropped_delim` parameter should always be passed in but if it wasn't, boost tokenizer will still parse the string.  Otherwise `kept_delims` and `empty_tokens` are already set to defaults and are optional traits.
 In order to use `kept_delims`, we simply pass in what delimiters we want to keep, and in order to use empty tokens we pass in `keep_empty_tokens` for `empty_tokens`.
 
 References:

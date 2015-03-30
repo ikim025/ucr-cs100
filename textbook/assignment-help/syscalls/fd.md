@@ -30,13 +30,13 @@ if(-1 == (fdold = open("fileold", O_RDONLY)))
 `open` takes in 3 arguments; a possible file name, a flag, and additional flags known collectively as a mode.
 The flag and mode are values able to be appended together with the "`|`" [bitwise operator](../bitwise-ops/README.md) to form a singular value that represents multiple behaviors.
 
-The flag argument encompasses what the file descriptor will try to enact once it is freed from memory.
-<br />The flag `O_WRONLY | O_CREAT` tells `open` to ask the system for write permissions to create a file called `filenew`.  
-<br />The flag `O_RDONLY` tells `open` to ask the system only for read permissions to the existing file `fileold`.
+The flag argument encompasses what the file descriptor will try to enact once it is freed from memory.  <br />
+The flag `O_WRONLY | O_CREAT` tells `open` to ask the system for write permissions to create a file called `filenew`.  <br />
+The flag `O_RDONLY` tells `open` to ask the system only for read permissions to the existing file `fileold`.
 
-The mode argument encompasses any additional flags that accompany the flag in `open`'s second argument. 
-<br />The mode `S_IRUSR | S_IWUSR` define the permissions to `filenew` as read-able and write-able by the user. 
-<br />There are no modes set when opening `fileold` as it does not use the flag `O_CREAT`.
+The mode argument encompasses any additional flags that accompany the flag in `open`'s second argument. <br />
+The mode `S_IRUSR | S_IWUSR` define the permissions to `filenew` as read-able and write-able by the user. <br />
+There are no modes set when opening `fileold` as it does not use the flag `O_CREAT`.
 
 If `open` fails, it will return -1 to the `int`s which we use to perform error checking with.
 
